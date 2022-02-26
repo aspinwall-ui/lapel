@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Assistant
 Exec=lapel --standalone
-Icon=microphone-sensitivity-medium
+Icon=microphone-sensitivity-high
 Terminal=false
 Type=Application
 Categories=GTK;

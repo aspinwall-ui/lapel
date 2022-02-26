@@ -3,7 +3,7 @@
 	<requires lib="gtk" version="4.0"/>
 	<template class="AboutDialog" parent="GtkAboutDialog">
 		<property name="program-name" translatable="Yes">Assistant</property>
-		<property name="logo-icon-name">microphone-sensitivity-medium</property>
+		<property name="logo-icon-name">microphone-sensitivity-high</property>
 		<property name="license">MIT License
 
 Copyright (c) 2022 Aspinwall contributors
