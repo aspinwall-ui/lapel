@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lapel package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: lapel\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-26 20:15+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/org.dithernet.lapel.desktop.in:3 src/ui/window.ui:6 src/ui/window.ui:38
+msgid "Assistant"
+msgstr ""
+
+#: data/org.dithernet.lapel.appdata.xml.in:7
+msgid "Voice assistant GUI based on Mycroft"
+msgstr ""
+
+#: src/ui/window.ui:56
+msgid "Skills"
+msgstr ""
+
+#: src/ui/window.ui:73
+msgid "_Preferences"
+msgstr ""
+
+#: src/ui/window.ui:77
+msgid "_About Assistant"
+msgstr ""

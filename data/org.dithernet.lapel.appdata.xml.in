@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+	<id>org.dithernet.lapel.desktop</id>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>MIT</project_license>
+	<description>
+	  <p>Voice assistant GUI based on Mycroft</p>
+	</description>
+</component>
