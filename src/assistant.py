@@ -24,10 +24,10 @@ class AssistantContent(Gtk.Box):
 		self.store = self.daemon.messages
 
 		self.message_list.bind_model(self.store, self.create_message_view, None)
+		self.message_list.set_adjustment(self.vadjustment)
 
 	def create_message_view(self, message, *args):
-		self.scroll_to_bottom()
-		return MessageView(message)
+		return MessageView(message, self)
 
 	@Gtk.Template.Callback()
 	def send_message(self, entry, *args):

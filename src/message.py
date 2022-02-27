@@ -3,6 +3,7 @@
 Code for storing information about messages.
 """
 from gi.repository import Gtk, GObject
+import threading
 
 from .wrappers import dialog_wrapper_for
 
@@ -42,7 +43,7 @@ class MessageView(Gtk.ListBoxRow):
 	utterance_label = Gtk.Template.Child()
 	dialog_wrapper = Gtk.Template.Child()
 
-	def __init__(self, message=None):
+	def __init__(self, message=None, parent=None):
 		"""
 		Creates an empty MessageView. You can bind it to a LapelMessage
 		with the MessageView.bind_to_message function.
@@ -50,6 +51,14 @@ class MessageView(Gtk.ListBoxRow):
 		super().__init__()
 		if message:
 			self.bind_to_message(message)
+
+		if parent:
+			self.parent = parent
+			self.connect('realize', self.scroll_to_bottom)
+
+	def scroll_to_bottom(self, *args):
+		"""Scrolls the parent container to the bottom."""
+		self.parent.scroll_to_bottom()
 
 	def bind_to_message(self, message):
 		"""Binds the MessageView to a message."""
