@@ -16,3 +16,8 @@
 	background-color: @accent_bg_color;
 	color: @accent_fg_color;
 }
+
+.messageview.received .messagebox {
+	background-color: @headerbar_bg_color;
+	color: @headerbar_fg_color;
+}

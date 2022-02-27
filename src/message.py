@@ -60,7 +60,7 @@ class MessageView(Gtk.ListBoxRow):
 
 	def is_sent(self):
 		"""
-		Actions to perform when the message recieved contains information
+		Actions to perform when the message received contains information
 		about a sent message.
 		"""
 		self.add_css_class('sent')
@@ -69,9 +69,9 @@ class MessageView(Gtk.ListBoxRow):
 
 	def is_received(self):
 		"""
-		Actions to perform when the message recieved contains information
+		Actions to perform when the message received contains information
 		about a received message.
 		"""
-		self.add_css_class('recieved')
+		self.add_css_class('received')
 		self.set_halign(Gtk.Align.START)
 		self.utterance_label.set_halign(Gtk.Align.START)
