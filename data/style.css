@@ -1,3 +1,8 @@
+.input-container {
+	background-color: @headerbar_bg_color;
+	color: @headerbar_fg_color;
+}
+
 .messageview, .messageview:active, .messageview:hover {
 	background-color: transparent;
 }
