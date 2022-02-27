@@ -39,8 +39,10 @@ class AssistantContent(Gtk.Box):
 	@Gtk.Template.Callback()
 	def send_message(self, entry, *args):
 		"""Sends the message from the entry."""
-		self.daemon.send_message(entry.get_text())
-		entry.set_text('')
+		text = entry.get_text()
+		if text:
+			self.daemon.send_message(text)
+			entry.set_text('')
 
 	@Gtk.Template.Callback()
 	def start_record(self, *args):
