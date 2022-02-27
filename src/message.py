@@ -74,6 +74,8 @@ class MessageView(Gtk.ListBoxRow):
 		if message.data:
 			if 'meta' in message.data.keys() and 'dialog' in message.data['meta'].keys():
 				dialog = message.data['meta']['dialog']
+				if dialog == 'unknown':
+					self.utterance_label.add_css_class('error')
 				self.set_wrapper(dialog_wrapper_for(dialog))
 
 	def is_sent(self):
