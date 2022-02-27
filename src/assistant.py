@@ -22,7 +22,7 @@ class AssistantContent(Gtk.Box):
 		self.message_list.bind_model(self.store, self.create_message_view, None)
 
 	def create_message_view(self, message, *args):
-		self.message_list.append(MessageView(message))
+		return MessageView(message)
 
 	@Gtk.Template.Callback()
 	def send_message(self, entry, *args):

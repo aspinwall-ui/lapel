@@ -7,26 +7,46 @@
 
 		<property name="margin-top">3</property>
 		<property name="margin-bottom">3</property>
-		<property name="margin-start">3</property>
-		<property name="margin-end">3</property>
+		<property name="margin-start">6</property>
+		<property name="margin-end">6</property>
 
 		<style>
 			<class name="messageview"/>
 		</style>
 
 		<child>
-			<object class="GtkBox" id="utterance_box">
-				<property name="hexpand">False</property>
-
-				<style>
-					<class name="messagebox"/>
-				</style>
+			<object class="GtkBox">
+				<property name="orientation">vertical</property>
 
 				<child>
-					<object class="GtkLabel" id="utterance_label">
-						<property name="wrap">true</property>
-						<property name="wrap-mode">word-char</property>
-						<property name="natural-wrap-mode">word</property>
+					<object class="GtkBox" id="utterance_box">
+						<property name="hexpand">False</property>
+
+						<style>
+							<class name="messagebox"/>
+						</style>
+
+						<child>
+							<object class="GtkLabel" id="utterance_label">
+								<property name="wrap">true</property>
+								<property name="wrap-mode">word-char</property>
+								<property name="natural-wrap-mode">word</property>
+							</object>
+						</child>
+					</object>
+				</child>
+
+				<child>
+					<object class="AdwBin" id="dialog_wrapper">
+						<property name="visible">false</property>
+						<property name="hexpand">true</property>
+
+						<property name="margin-top">3</property>
+						<property name="margin-bottom">3</property>
+
+						<style>
+							<class name="dialog-wrapper"/>
+						</style>
 					</object>
 				</child>
 			</object>

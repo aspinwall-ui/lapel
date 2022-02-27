@@ -4,6 +4,8 @@ Code for storing information about messages.
 """
 from gi.repository import Gtk, GObject
 
+from .wrappers import dialog_wrapper_for
+
 class LapelMessage(GObject.Object):
 	"""
 	GObject wrapper for Mycroft messages.
@@ -38,6 +40,7 @@ class MessageView(Gtk.ListBoxRow):
 	__gtype_name__ = 'MessageView'
 
 	utterance_label = Gtk.Template.Child()
+	dialog_wrapper = Gtk.Template.Child()
 
 	def __init__(self, message=None):
 		"""
@@ -54,9 +57,15 @@ class MessageView(Gtk.ListBoxRow):
 		if message.type == 'recognizer_loop:utterance':
 			self.is_sent()
 			self.utterance_label.set_label(' '.join(message.data['utterances']))
+			return
 		else:
 			self.is_received()
 			self.utterance_label.set_label(message.data['utterance'])
+
+		if message.data:
+			if 'meta' in message.data.keys() and 'dialog' in message.data['meta'].keys():
+				dialog = message.data['meta']['dialog']
+				self.set_wrapper(dialog_wrapper_for(dialog))
 
 	def is_sent(self):
 		"""
@@ -75,3 +84,11 @@ class MessageView(Gtk.ListBoxRow):
 		self.add_css_class('received')
 		self.set_halign(Gtk.Align.START)
 		self.utterance_label.set_halign(Gtk.Align.START)
+
+	def set_wrapper(self, wrapper):
+		"""Sets the dialog wrapper for the message."""
+		if not wrapper:
+			return None
+
+		self.dialog_wrapper.set_visible(True)
+		self.dialog_wrapper.set_child(wrapper)

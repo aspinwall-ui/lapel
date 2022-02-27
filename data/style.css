@@ -8,6 +8,7 @@
 }
 
 .messagebox {
+	font-size: 1.2em;
 	padding: 8px;
 	border-radius: 10px;
 }
@@ -20,4 +21,11 @@
 .messageview.received .messagebox {
 	background-color: @headerbar_bg_color;
 	color: @headerbar_fg_color;
+}
+
+.suggestion-button {
+	background-color: @headerbar_bg_color;
+	color: @headerbar_fg_color;
+	font-size: 1.1em;
+	padding: 6px;
 }

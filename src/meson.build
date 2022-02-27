@@ -26,3 +26,5 @@ lapel_sources = [
 ]
 
 install_data(lapel_sources, install_dir: moduledir)
+
+subdir('wrappers')
