@@ -6,24 +6,28 @@
 		<property name="orientation">vertical</property>
 
 		<child>
-			<object class="GtkScrolledWindow">
-				<property name="vexpand">true</property>
-
+			<object class="AdwClamp">
 				<child>
-					<object class="GtkViewport">
-						<property name="hexpand">true</property>
+					<object class="GtkScrolledWindow">
 						<property name="vexpand">true</property>
 
 						<child>
-							<object class="GtkListBox" id="message_list">
+							<object class="GtkViewport">
 								<property name="hexpand">true</property>
 								<property name="vexpand">true</property>
-								<property name="valign">end</property>
 
-								<property name="margin-top">6</property>
-								<property name="margin-bottom">6</property>
-								<property name="margin-start">3</property>
-								<property name="margin-end">3</property>
+								<child>
+									<object class="GtkListBox" id="message_list">
+										<property name="hexpand">true</property>
+										<property name="vexpand">true</property>
+										<property name="valign">end</property>
+
+										<property name="margin-top">6</property>
+										<property name="margin-bottom">6</property>
+										<property name="margin-start">3</property>
+										<property name="margin-end">3</property>
+									</object>
+								</child>
 							</object>
 						</child>
 					</object>
