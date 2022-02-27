@@ -10,6 +10,9 @@ gi.require_version('Gtk', '4.0')
 
 from gi.repository import Adw, Gtk, Gio
 
+from .assistant import AssistantContent
+from .daemon import start_daemon
+
 @Gtk.Template(resource_path='/org/dithernet/lapel/window.ui')
 class LapelWindow(Adw.ApplicationWindow):
 	"""Main window for the program."""
@@ -34,6 +37,7 @@ class Application(Adw.Application):
 			application_id='org.dithernet.lapel',
 			flags=Gio.ApplicationFlags.FLAGS_NONE
 		)
+		start_daemon()
 
 	def do_activate(self):
 		win = self.props.active_window

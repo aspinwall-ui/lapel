@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+	<requires lib="adw" version="1.0"/>
+	<requires lib="gtk" version="4.0"/>
+	<template class="AssistantContent" parent="GtkBox">
+		<child>
+			<object class="AdwClampScrollable">
+				<property name="maximum-size">700</property>
+				<property name="hexpand">true</property>
+				<property name="vexpand">true</property>
+
+				<child>
+					<object class="GtkListView" id="message_list">
+						<property name="vexpand">true</property>
+						<property name="valign">end</property>
+					</object>
+				</child>
+			</object>
+		</child>
+	</template>
+</interface>

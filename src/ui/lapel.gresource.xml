@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
 	<gresource prefix="/org/dithernet/lapel">
-		<file>window.ui</file>
 		<file>about.ui</file>
+		<file>assistant.ui</file>
+		<file>window.ui</file>
 	</gresource>
 </gresources>

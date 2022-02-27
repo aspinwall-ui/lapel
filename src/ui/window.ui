@@ -39,13 +39,7 @@
 								<property name="icon-name">microphone-sensitivity-medium-symbolic</property>
 
 								<property name="child">
-									<object class="GtkBox">
-										<property name="orientation">vertical</property>
-
-										<child>
-											<object class="GtkBox"/>
-										</child>
-									</object>
+									<object class="AssistantContent"/>
 								</property>
 							</object>
 						</child>

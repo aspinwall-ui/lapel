@@ -19,6 +19,9 @@ configure_file(
 
 lapel_sources = [
   '__init__.py',
+  'assistant.py',
+  'daemon.py',
+  'message.py',
   'window.py',
 ]
 
