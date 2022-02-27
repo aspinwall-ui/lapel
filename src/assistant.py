@@ -3,6 +3,7 @@
 Code for the assistant view.
 """
 from gi.repository import Gtk
+import sys
 
 from .daemon import get_daemon
 from .message import MessageView
@@ -13,6 +14,9 @@ class AssistantContent(Gtk.Box):
 	__gtype_name__ = 'AssistantContent'
 
 	message_list = Gtk.Template.Child()
+	scroll_down_button = Gtk.Template.Child()
+	vadjustment = Gtk.Template.Child()
+	prev_upper = 0
 
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
@@ -22,6 +26,7 @@ class AssistantContent(Gtk.Box):
 		self.message_list.bind_model(self.store, self.create_message_view, None)
 
 	def create_message_view(self, message, *args):
+		self.scroll_to_bottom()
 		return MessageView(message)
 
 	@Gtk.Template.Callback()
@@ -34,3 +39,45 @@ class AssistantContent(Gtk.Box):
 	def start_record(self, *args):
 		"""Starts to record the voice for voice recognition."""
 		self.daemon.start_record()
+
+	@Gtk.Template.Callback()
+	def list_page_size_changed(self, adjustment, *args):
+		"""Callback for the scroll view adjustment."""
+		size = adjustment.get_page_size()
+		value = adjustment.get_value()
+		upper = adjustment.get_upper()
+
+		prev_upper = self.prev_upper
+		self.prev_upper = upper
+
+		if prev_upper < upper:
+			return
+
+		if (upper - size) <= sys.float_info.epsilon:
+			return
+
+		if (upper - value) < size * 1.15:
+			adjustment.set_value(upper)
+
+		self.list_adjustment_value_changed(adjustment)
+
+	@Gtk.Template.Callback()
+	def list_adjustment_value_changed(self, adjustment, *args):
+		"""Callback for the scroll view adjustment."""
+		size = adjustment.get_page_size()
+		value = adjustment.get_value()
+		upper = adjustment.get_upper()
+
+		if (upper - value) > size + 1.0:
+			self.scroll_down_button.set_visible(True)
+		else:
+			self.scroll_down_button.set_visible(False)
+
+		if size < 0.1:
+			self.scroll_down_button.hide()
+
+	@Gtk.Template.Callback()
+	def scroll_to_bottom(self, *args):
+		"""Scrolls to the bottom of the message list."""
+		self.vadjustment.set_value(self.vadjustment.get_upper())
+		self.scroll_down_button.hide()
