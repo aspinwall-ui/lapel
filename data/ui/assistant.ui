@@ -6,24 +6,20 @@
 		<property name="orientation">vertical</property>
 
 		<child>
-			<object class="AdwClamp">
+			<object class="GtkScrolledWindow">
+				<property name="vexpand">true</property>
+
 				<style>
 					<class name="background"/>
 				</style>
 
 				<child>
-					<object class="GtkScrolledWindow">
+					<object class="GtkViewport">
+						<property name="hexpand">true</property>
 						<property name="vexpand">true</property>
 
-						<style>
-							<class name="background"/>
-						</style>
-
 						<child>
-							<object class="GtkViewport">
-								<property name="hexpand">true</property>
-								<property name="vexpand">true</property>
-
+							<object class="AdwClamp">
 								<child>
 									<object class="GtkListBox" id="message_list">
 										<property name="hexpand">true</property>
