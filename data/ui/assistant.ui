@@ -7,9 +7,17 @@
 
 		<child>
 			<object class="AdwClamp">
+				<style>
+					<class name="background"/>
+				</style>
+
 				<child>
 					<object class="GtkScrolledWindow">
 						<property name="vexpand">true</property>
+
+						<style>
+							<class name="background"/>
+						</style>
 
 						<child>
 							<object class="GtkViewport">
@@ -26,6 +34,10 @@
 										<property name="margin-bottom">6</property>
 										<property name="margin-start">3</property>
 										<property name="margin-end">3</property>
+
+										<style>
+											<class name="background"/>
+										</style>
 									</object>
 								</child>
 							</object>
