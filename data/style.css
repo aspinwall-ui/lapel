@@ -1,4 +1,5 @@
 .input-container {
+	border-top: 1px solid @borders;
 	background-color: @headerbar_bg_color;
 	color: @headerbar_fg_color;
 }
