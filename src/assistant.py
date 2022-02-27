@@ -14,6 +14,7 @@ class AssistantContent(Gtk.Box):
 	__gtype_name__ = 'AssistantContent'
 
 	message_list = Gtk.Template.Child()
+	input_entry = Gtk.Template.Child()
 	scroll_down_button = Gtk.Template.Child()
 	vadjustment = Gtk.Template.Child()
 	prev_upper = 0
@@ -25,6 +26,12 @@ class AssistantContent(Gtk.Box):
 
 		self.message_list.bind_model(self.store, self.create_message_view, None)
 		self.message_list.set_adjustment(self.vadjustment)
+
+		self.input_entry.set_icon_from_icon_name(
+			Gtk.EntryIconPosition.SECONDARY,
+			'document-send-symbolic'
+		)
+		self.input_entry.connect('icon-release', self.send_message)
 
 	def create_message_view(self, message, *args):
 		return MessageView(message, self)
