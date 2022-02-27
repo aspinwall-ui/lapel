@@ -7,7 +7,7 @@ from gi.repository import Gtk
 from .daemon import get_daemon
 from .message import MessageView
 
-@Gtk.Template(resource_path='/org/dithernet/lapel/assistant.ui')
+@Gtk.Template(resource_path='/org/dithernet/lapel/ui/assistant.ui')
 class AssistantContent(Gtk.Box):
 	"""Main window for the program."""
 	__gtype_name__ = 'AssistantContent'
@@ -18,16 +18,7 @@ class AssistantContent(Gtk.Box):
 		super().__init__(**kwargs)
 		self.store = get_daemon().messages
 
-		factory = Gtk.SignalListItemFactory()
-		factory.connect('setup', self.message_setup)
-		factory.connect('bind', self.message_bind)
+		self.message_list.bind_model(self.store, self.create_message_view, None)
 
-		self.message_list.set_model(Gtk.SingleSelection(model=self.store))
-		self.message_list.set_factory(factory)
-
-	def message_setup(self, factory, list_item):
-		list_item.set_child(MessageView())
-
-	def message_bind(self, factory, list_item):
-		message = list_item.get_item()
-		list_item.get_child().bind_to_message(message)
+	def create_message_view(self, message, *args):
+		self.message_list.append(MessageView(message))

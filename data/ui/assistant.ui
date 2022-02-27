@@ -4,15 +4,21 @@
 	<requires lib="gtk" version="4.0"/>
 	<template class="AssistantContent" parent="GtkBox">
 		<child>
-			<object class="AdwClampScrollable">
-				<property name="maximum-size">700</property>
-				<property name="hexpand">true</property>
+			<object class="GtkScrolledWindow">
 				<property name="vexpand">true</property>
 
 				<child>
-					<object class="GtkListView" id="message_list">
+					<object class="GtkViewport">
+						<property name="hexpand">true</property>
 						<property name="vexpand">true</property>
-						<property name="valign">end</property>
+
+						<child>
+							<object class="GtkListBox" id="message_list">
+								<property name="hexpand">true</property>
+								<property name="vexpand">true</property>
+								<property name="valign">end</property>
+							</object>
+						</child>
 					</object>
 				</child>
 			</object>

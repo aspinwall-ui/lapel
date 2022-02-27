@@ -3,7 +3,7 @@
 Contains code for the message bus daemon.
 """
 from mycroft_bus_client import MessageBusClient, Message
-from gi.repository import Gio
+from gi.repository import Gio, GObject
 
 from .message import LapelMessage
 
@@ -22,6 +22,7 @@ class MessageBusDaemon:
 		self.messages = Gio.ListStore(item_type=LapelMessage)
 
 		self.client.on('speak', self.to_message)
+		self.client.on('recognizer_loop:utterance', self.to_message)
 
 	def to_message(self, message):
 		"""

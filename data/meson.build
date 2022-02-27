@@ -1,3 +1,6 @@
+pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
+moduledir = join_paths(pkgdatadir, 'lapel')
+
 desktop_file = i18n.merge_file(
   input: 'org.dithernet.lapel.desktop.in',
   output: 'org.dithernet.lapel.desktop',
@@ -39,3 +42,12 @@ if compile_schemas.found()
     args: ['--strict', '--dry-run', meson.current_source_dir()]
   )
 endif
+
+gnome = import('gnome')
+
+gnome.compile_resources('lapel',
+  'lapel.gresource.xml',
+  gresource_bundle: true,
+  install: true,
+  install_dir: pkgdatadir,
+)

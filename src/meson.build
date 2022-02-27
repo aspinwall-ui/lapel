@@ -25,6 +25,4 @@ lapel_sources = [
   'window.py',
 ]
 
-subdir('ui')
-
 install_data(lapel_sources, install_dir: moduledir)

@@ -13,7 +13,7 @@ from gi.repository import Adw, Gtk, Gio
 from .assistant import AssistantContent
 from .daemon import start_daemon
 
-@Gtk.Template(resource_path='/org/dithernet/lapel/window.ui')
+@Gtk.Template(resource_path='/org/dithernet/lapel/ui/window.ui')
 class LapelWindow(Adw.ApplicationWindow):
 	"""Main window for the program."""
 	__gtype_name__ = 'LapelWindow'
@@ -21,7 +21,7 @@ class LapelWindow(Adw.ApplicationWindow):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
 
-@Gtk.Template(resource_path='/org/dithernet/lapel/about.ui')
+@Gtk.Template(resource_path='/org/dithernet/lapel/ui/about.ui')
 class AboutDialog(Gtk.AboutDialog):
 	"""Main about dialog for Assistant."""
 	__gtype_name__ = 'AboutDialog'
@@ -35,7 +35,8 @@ class Application(Adw.Application):
 	def __init__(self):
 		super().__init__(
 			application_id='org.dithernet.lapel',
-			flags=Gio.ApplicationFlags.FLAGS_NONE
+			flags=Gio.ApplicationFlags.FLAGS_NONE,
+			resource_base_path='/org/dithernet/lapel/'
 		)
 		start_daemon()
 
