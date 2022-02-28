@@ -1,6 +1,7 @@
 data/org.dithernet.lapel.desktop.in
 data/org.dithernet.lapel.appdata.xml.in
 data/org.dithernet.lapel.gschema.xml
-src/ui/window.ui
+data/ui/window.ui
+data/ui/assistant.ui
 src/window.py
 

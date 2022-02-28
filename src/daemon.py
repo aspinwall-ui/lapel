@@ -4,6 +4,7 @@ Contains code for the message bus daemon.
 """
 from mycroft_bus_client import MessageBusClient, Message
 from gi.repository import Gio, GObject
+import threading
 
 import inspect
 
@@ -16,6 +17,8 @@ class MessageBusDaemon:
 	Convenience class that sets up the MessageBus handler and its
 	callbacks.
 	"""
+	error_handler_func = None
+
 	def __init__(self):
 		"""Sets up the MessageBus handler."""
 		self.client = MessageBusClient()
@@ -28,6 +31,7 @@ class MessageBusDaemon:
 
 	def start_record(self):
 		"""Starts recording the message for voice recognition."""
+		self.client.emit(Message('mycroft.mic.listen'))
 		self.client.emit(Message('recognizer_loop:record_begin'))
 		#self.client.emit(Message('recognizer_loop:wakeword', data={"utterance": "hey mycroft", "session": "0"}))
 
@@ -40,9 +44,15 @@ class MessageBusDaemon:
 
 	def send_message(self, message):
 		"""Sends a text message to the daemon."""
-		self.client.emit(Message('recognizer_loop:utterance',
-			{"utterances": [message], "lang": 'en-us'}
-		))
+		send_thread = threading.Thread(target=self.client.emit,
+			args=[Message('recognizer_loop:utterance',
+				{"utterances": [message], "lang": 'en-us'})
+		])
+		send_thread.start()
+
+	def set_error_handler(self, handler):
+		"""Sets the function to be called when an error occurs."""
+		self.error_handler_func = handler
 
 def get_daemon():
 	"""Returns the currently running MessageBus handler."""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-26 20:15+0100\n"
+"POT-Creation-Date: 2022-02-28 15:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/org.dithernet.lapel.desktop.in:3 src/ui/window.ui:6 src/ui/window.ui:38
+#: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
+#: data/ui/window.ui:38
 msgid "Assistant"
 msgstr ""
 
@@ -25,14 +26,23 @@ msgstr ""
 msgid "Voice assistant GUI based on Mycroft"
 msgstr ""
 
-#: src/ui/window.ui:56
+#: data/ui/window.ui:50
 msgid "Skills"
 msgstr ""
 
-#: src/ui/window.ui:73
+#: data/ui/window.ui:67
 msgid "_Preferences"
 msgstr ""
 
-#: src/ui/window.ui:77
+#: data/ui/window.ui:71
 msgid "_About Assistant"
+msgstr ""
+
+#: data/ui/assistant.ui:22
+msgid "Could Not Connect"
+msgstr ""
+
+#: data/ui/assistant.ui:23
+msgid ""
+"Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
 msgstr ""
