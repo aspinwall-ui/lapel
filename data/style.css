@@ -19,6 +19,10 @@
 	border-radius: 10px;
 }
 
+.messagebox .message-date {
+	font-size: 0.75em;
+}
+
 .messageview.sent .messagebox {
 	background-color: @accent_bg_color;
 	color: @accent_fg_color;

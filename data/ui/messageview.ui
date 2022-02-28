@@ -17,6 +17,7 @@
 		<child>
 			<object class="GtkBox">
 				<property name="orientation">vertical</property>
+				<property name="spacing">5</property>
 
 				<child>
 					<object class="GtkBox" id="utterance_box">
@@ -41,11 +42,18 @@
 						<property name="visible">false</property>
 						<property name="hexpand">true</property>
 
-						<property name="margin-top">3</property>
-						<property name="margin-bottom">3</property>
-
 						<style>
 							<class name="dialog-wrapper"/>
+						</style>
+					</object>
+				</child>
+
+				<child>
+					<object class="GtkLabel" id="message_date">
+						<property name="valign">end</property>
+						<style>
+							<class name="message-date"/>
+							<class name="dim-label"/>
 						</style>
 					</object>
 				</child>

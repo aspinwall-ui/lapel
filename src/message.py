@@ -3,6 +3,7 @@
 Code for storing information about messages.
 """
 from gi.repository import Gtk, GObject
+import time
 import threading
 
 from .wrappers import dialog_wrapper_for
@@ -40,6 +41,7 @@ class MessageView(Gtk.ListBoxRow):
 	"""
 	__gtype_name__ = 'MessageView'
 
+	message_date = Gtk.Template.Child()
 	utterance_label = Gtk.Template.Child()
 	dialog_wrapper = Gtk.Template.Child()
 
@@ -52,6 +54,8 @@ class MessageView(Gtk.ListBoxRow):
 		if message:
 			self.bind_to_message(message)
 
+		self.message_date = time
+
 		if parent:
 			self.parent = parent
 			self.connect('realize', self.scroll_to_bottom)
@@ -63,6 +67,7 @@ class MessageView(Gtk.ListBoxRow):
 	def bind_to_message(self, message):
 		"""Binds the MessageView to a message."""
 		self.message = message
+		self.message_date.set_label(time.strftime('%H:%M'))
 		if message.type == 'recognizer_loop:utterance':
 			self.is_sent()
 			self.utterance_label.set_label(' '.join(message.data['utterances']))
@@ -86,6 +91,7 @@ class MessageView(Gtk.ListBoxRow):
 		self.add_css_class('sent')
 		self.set_halign(Gtk.Align.END)
 		self.utterance_label.set_halign(Gtk.Align.END)
+		self.message_date.set_halign(Gtk.Align.END)
 
 	def is_received(self):
 		"""
@@ -95,6 +101,7 @@ class MessageView(Gtk.ListBoxRow):
 		self.add_css_class('received')
 		self.set_halign(Gtk.Align.START)
 		self.utterance_label.set_halign(Gtk.Align.START)
+		self.message_date.set_halign(Gtk.Align.START)
 
 	def set_wrapper(self, wrapper):
 		"""Sets the dialog wrapper for the message."""
