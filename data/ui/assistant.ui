@@ -8,6 +8,29 @@
 		<child>
 			<object class="GtkOverlay">
 				<child type="overlay">
+					<object class="GtkRevealer" id="no_connection">
+						<property name="reveal-child">false</property>
+						<property name="transition-type">crossfade</property>
+
+						<style>
+							<class name="no-connection-overlay"/>
+						</style>
+
+						<child>
+							<object class="AdwStatusPage" id="no_connection_status">
+								<property name="icon-name">network-error-symbolic</property>
+								<property name="title" translatable="yes">Could Not Connect</property>
+								<property name="description" translatable="yes">Failed to connect to Mycroft websocket. Make sure that Mycroft is running.</property>
+
+								<style>
+									<class name="no-connection-status"/>
+								</style>
+							</object>
+						</child>
+					</object>
+				</child>
+
+				<child type="overlay">
 					<object class="GtkButton" id="scroll_down_button">
 						<property name="visible">false</property>
 						<property name="icon-name">go-bottom-symbolic</property>

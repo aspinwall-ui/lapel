@@ -4,6 +4,11 @@
 	color: @headerbar_fg_color;
 }
 
+.no-connection-status {
+	background-color: @view_bg_color;
+	color: @view_fg_color;
+}
+
 .messageview, .messageview:active, .messageview:hover {
 	background-color: transparent;
 }

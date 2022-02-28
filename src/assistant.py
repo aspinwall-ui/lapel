@@ -15,6 +15,7 @@ class AssistantContent(Gtk.Box):
 
 	message_list = Gtk.Template.Child()
 	no_connection = Gtk.Template.Child()
+	no_connection_status = Gtk.Template.Child()
 	scroll_down_button = Gtk.Template.Child()
 
 	input_container = Gtk.Template.Child()
@@ -46,13 +47,16 @@ class AssistantContent(Gtk.Box):
 
 	def handle_error(self, error):
 		"""Handles errors."""
+		self.no_connection.show()
 		self.no_connection.set_reveal_child(True)
 		self.input_container.set_sensitive(False)
 		self.has_connection = False
 
 	def ready(self, *args):
 		"""Recovers after an error."""
+		self.no_connection.set_receives_default(False)
 		self.no_connection.set_reveal_child(False)
+		self.no_connection.hide()
 		self.input_container.set_sensitive(True)
 		self.has_connection = True
 
