@@ -32,8 +32,6 @@ class MessageBusDaemon:
 	def start_record(self):
 		"""Starts recording the message for voice recognition."""
 		self.client.emit(Message('mycroft.mic.listen'))
-		self.client.emit(Message('recognizer_loop:record_begin'))
-		#self.client.emit(Message('recognizer_loop:wakeword', data={"utterance": "hey mycroft", "session": "0"}))
 
 	def to_message(self, message):
 		"""
@@ -44,6 +42,7 @@ class MessageBusDaemon:
 
 	def send_message(self, message):
 		"""Sends a text message to the daemon."""
+		self.client.emit(Message('recognizer_loop:record_end'))
 		send_thread = threading.Thread(target=self.client.emit,
 			args=[Message('recognizer_loop:utterance',
 				{"utterances": [message], "lang": 'en-us'})
