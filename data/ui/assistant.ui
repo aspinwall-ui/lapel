@@ -6,82 +6,142 @@
 		<property name="orientation">vertical</property>
 
 		<child>
-			<object class="GtkOverlay">
-				<child type="overlay">
-					<object class="GtkRevealer" id="no_connection">
-						<property name="reveal-child">false</property>
-						<property name="transition-type">crossfade</property>
-
-						<style>
-							<class name="no-connection-overlay"/>
-						</style>
-
-						<child>
-							<object class="AdwStatusPage" id="no_connection_status">
-								<property name="icon-name">network-error-symbolic</property>
-								<property name="title" translatable="yes">Could Not Connect</property>
-								<property name="description" translatable="yes">Failed to connect to Mycroft websocket. Make sure that Mycroft is running.</property>
-
-								<style>
-									<class name="no-connection-status"/>
-								</style>
-							</object>
-						</child>
-					</object>
-				</child>
-
-				<child type="overlay">
-					<object class="GtkButton" id="scroll_down_button">
-						<property name="visible">false</property>
-						<property name="icon-name">go-bottom-symbolic</property>
-						<property name="halign">end</property>
-						<property name="valign">end</property>
-
-						<property name="margin-top">18</property>
-						<property name="margin-bottom">18</property>
-						<property name="margin-start">18</property>
-						<property name="margin-end">18</property>
-
-						<signal name="clicked" handler="scroll_to_bottom"/>
-
-						<style>
-							<class name="osd"/>
-							<class name="circular"/>
-							<class name="suggested-action"/>
-						</style>
-					</object>
-				</child>
+			<object class="AdwFlap" id="content_flap">
+				<property name="vexpand">true</property>
+				<property name="orientation">vertical</property>
+				<property name="fold-policy">always</property>
+				<property name="flap-position">end</property>
+				<property name="reveal-flap">false</property>
 
 				<child>
-					<object class="GtkScrolledWindow">
-						<property name="vexpand">true</property>
-						<property name="vadjustment">vadjustment</property>
-
-						<style>
-							<class name="background"/>
-						</style>
+					<object class="GtkBox">
+						<property name="orientation">vertical</property>
 
 						<child>
-							<object class="GtkViewport">
-								<property name="hexpand">true</property>
-								<property name="vexpand">true</property>
+							<object class="GtkOverlay">
+								<child type="overlay">
+									<object class="GtkRevealer" id="no_connection">
+										<property name="reveal-child">false</property>
+										<property name="transition-type">crossfade</property>
+
+										<style>
+											<class name="no-connection-overlay"/>
+										</style>
+
+										<child>
+											<object class="AdwStatusPage" id="no_connection_status">
+												<property name="icon-name">network-error-symbolic</property>
+												<property name="title" translatable="yes">Could Not Connect</property>
+												<property name="description" translatable="yes">Failed to connect to Mycroft websocket. Make sure that Mycroft is running.</property>
+
+												<style>
+													<class name="no-connection-status"/>
+												</style>
+											</object>
+										</child>
+									</object>
+								</child>
+
+								<child type="overlay">
+									<object class="GtkButton" id="scroll_down_button">
+										<property name="visible">false</property>
+										<property name="icon-name">go-bottom-symbolic</property>
+										<property name="halign">end</property>
+										<property name="valign">end</property>
+
+										<property name="margin-top">18</property>
+										<property name="margin-bottom">18</property>
+										<property name="margin-start">18</property>
+										<property name="margin-end">18</property>
+
+										<signal name="clicked" handler="scroll_to_bottom"/>
+
+										<style>
+											<class name="osd"/>
+											<class name="circular"/>
+											<class name="suggested-action"/>
+										</style>
+									</object>
+								</child>
+
+								<child>
+									<object class="GtkScrolledWindow">
+										<property name="vexpand">true</property>
+										<property name="vadjustment">vadjustment</property>
+
+										<style>
+											<class name="background"/>
+										</style>
+
+										<child>
+											<object class="GtkViewport">
+												<property name="hexpand">true</property>
+												<property name="vexpand">true</property>
+
+												<child>
+													<object class="AdwClamp">
+														<child>
+															<object class="GtkListBox" id="message_list">
+																<property name="hexpand">true</property>
+																<property name="vexpand">true</property>
+																<property name="valign">end</property>
+
+																<property name="margin-top">6</property>
+																<property name="margin-bottom">6</property>
+																<property name="margin-start">3</property>
+																<property name="margin-end">3</property>
+
+																<style>
+																	<class name="background"/>
+																</style>
+															</object>
+														</child>
+													</object>
+												</child>
+											</object>
+										</child>
+									</object>
+								</child>
+							</object>
+						</child>
+
+						<child>
+							<object class="GtkBox">
+								<style>
+									<class name="toolbar"/>
+									<class name="input-container"/>
+								</style>
 
 								<child>
 									<object class="AdwClamp">
+										<property name="hexpand">true</property>
+
 										<child>
-											<object class="GtkListBox" id="message_list">
-												<property name="hexpand">true</property>
-												<property name="vexpand">true</property>
-												<property name="valign">end</property>
+											<object class="GtkBox" id="input_container">
+												<property name="spacing">5</property>
 
 												<property name="margin-top">6</property>
 												<property name="margin-bottom">6</property>
 												<property name="margin-start">3</property>
 												<property name="margin-end">3</property>
 
-												<style>
-													<class name="background"/>
-												</style>
+												<child>
+													<object class="GtkButton" id="voice_recognition_button">
+														<property name="icon-name">microphone-sensitivity-high-symbolic</property>
+														<signal name="clicked" handler="start_record"/>
+
+														<style>
+															<class name="raised"/>
+														</style>
+													</object>
+												</child>
+
+												<child>
+													<object class="GtkEntry" id="input_entry">
+														<property name="hexpand">true</property>
+														<signal name="activate" handler="send_message"/>
+													</object>
+												</child>
 											</object>
 										</child>
 									</object>
@@ -90,49 +150,9 @@
 						</child>
 					</object>
 				</child>
-			</object>
-		</child>
 
-		<child>
-			<object class="GtkBox">
-				<style>
-					<class name="toolbar"/>
-					<class name="input-container"/>
-				</style>
-
-				<child>
-					<object class="AdwClamp">
-						<property name="hexpand">true</property>
-
-						<child>
-							<object class="GtkBox" id="input_container">
-								<property name="spacing">5</property>
-
-								<property name="margin-top">6</property>
-								<property name="margin-bottom">6</property>
-								<property name="margin-start">3</property>
-								<property name="margin-end">3</property>
-
-								<child>
-									<object class="GtkButton" id="voice_recognition_button">
-										<property name="icon-name">microphone-sensitivity-high-symbolic</property>
-										<signal name="clicked" handler="start_record"/>
-
-										<style>
-											<class name="raised"/>
-										</style>
-									</object>
-								</child>
-
-								<child>
-									<object class="GtkEntry" id="input_entry">
-										<property name="hexpand">true</property>
-										<signal name="activate" handler="send_message"/>
-									</object>
-								</child>
-							</object>
-						</child>
-					</object>
+				<child type="flap">
+					<object class="SpeechView" id="speech_view"/>
 				</child>
 			</object>
 		</child>

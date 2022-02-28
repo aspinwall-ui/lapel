@@ -8,15 +8,28 @@ import sys
 from .daemon import get_daemon
 from .message import MessageView
 
+@Gtk.Template(resource_path='/org/dithernet/lapel/ui/speechview.ui')
+class SpeechView(Gtk.Box):
+	"""Box that shows the microphone volume when speaking to Mycroft."""
+	__gtype_name__ = 'SpeechView'
+
+	@Gtk.Template.Callback()
+	def close(self, *args):
+		self.get_parent().set_reveal_flap(False)
+		get_daemon().stop_record()
+
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/assistant.ui')
 class AssistantContent(Gtk.Box):
 	"""Main window for the program."""
 	__gtype_name__ = 'AssistantContent'
 
+	content_flap = Gtk.Template.Child()
 	message_list = Gtk.Template.Child()
 	no_connection = Gtk.Template.Child()
 	no_connection_status = Gtk.Template.Child()
 	scroll_down_button = Gtk.Template.Child()
+
+	speech_view = Gtk.Template.Child()
 
 	input_container = Gtk.Template.Child()
 	input_entry = Gtk.Template.Child()
@@ -31,6 +44,8 @@ class AssistantContent(Gtk.Box):
 		self.daemon = get_daemon()
 		self.daemon.client.on('error', self.handle_error)
 		self.daemon.client.on('mycroft.ready', self.ready)
+		self.daemon.client.on('recognizer_loop:wakeword', self.start_record)
+		self.daemon.client.on('recognizer_loop:record_end', self.speech_timeout)
 		self.store = self.daemon.messages
 
 		self.message_list.bind_model(self.store, self.create_message_view, None)
@@ -42,16 +57,28 @@ class AssistantContent(Gtk.Box):
 		)
 		self.input_entry.connect('icon-release', self.send_message)
 
+		self.content_flap.connect('notify::reveal-flap', self.speech_flap_closed)
+
 		self.no_connection.hide()
 
 	def create_message_view(self, message, *args):
+		self.content_flap.set_reveal_flap(False)
 		return MessageView(message, self)
+
+	def speech_timeout(self, *args):
+		self.content_flap.set_reveal_flap(False)
+
+	def speech_flap_closed(self, *args):
+		"""Stops recording mode."""
+		if self.content_flap.get_reveal_flap() is False:
+			self.daemon.stop_record()
 
 	def handle_error(self, error):
 		"""Handles errors."""
 		self.no_connection.show()
 		self.no_connection.set_reveal_child(True)
 		self.input_container.set_sensitive(False)
+		self.content_flap.set_reveal_flap(False)
 		self.has_connection = False
 
 	def ready(self, *args):
@@ -73,6 +100,7 @@ class AssistantContent(Gtk.Box):
 	@Gtk.Template.Callback()
 	def start_record(self, *args):
 		"""Starts to record the voice for voice recognition."""
+		self.content_flap.set_reveal_flap(True)
 		self.daemon.start_record()
 
 	@Gtk.Template.Callback()

@@ -33,6 +33,11 @@ class MessageBusDaemon:
 		"""Starts recording the message for voice recognition."""
 		self.client.emit(Message('mycroft.mic.listen'))
 
+	def stop_record(self):
+		"""Stops recording the current voice recognition message."""
+		self.client.emit(Message('mycroft.stop'))
+		self.client.emit(Message('recognizer_loop:record_end'))
+
 	def to_message(self, message):
 		"""
 		Turns the provided Message to a LapelMessage and adds it to the daemon's

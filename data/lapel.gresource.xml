@@ -5,6 +5,7 @@
 		<file>ui/about.ui</file>
 		<file>ui/assistant.ui</file>
 		<file>ui/messageview.ui</file>
+		<file>ui/speechview.ui</file>
 		<file>ui/window.ui</file>
 	</gresource>
 </gresources>
