@@ -42,6 +42,8 @@ class AssistantContent(Gtk.Box):
 		)
 		self.input_entry.connect('icon-release', self.send_message)
 
+		self.no_connection.hide()
+
 	def create_message_view(self, message, *args):
 		return MessageView(message, self)
 
