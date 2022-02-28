@@ -42,6 +42,7 @@ class MessageView(Gtk.ListBoxRow):
 	__gtype_name__ = 'MessageView'
 
 	message_date = Gtk.Template.Child()
+	utterance_box = Gtk.Template.Child()
 	utterance_label = Gtk.Template.Child()
 	dialog_wrapper = Gtk.Template.Child()
 
@@ -90,8 +91,11 @@ class MessageView(Gtk.ListBoxRow):
 		"""
 		self.add_css_class('sent')
 		self.set_halign(Gtk.Align.END)
+		self.utterance_box.set_halign(Gtk.Align.END)
 		self.utterance_label.set_halign(Gtk.Align.END)
 		self.message_date.set_halign(Gtk.Align.END)
+
+		self.utterance_box.set_margin_start(5)
 
 	def is_received(self):
 		"""
@@ -100,8 +104,11 @@ class MessageView(Gtk.ListBoxRow):
 		"""
 		self.add_css_class('received')
 		self.set_halign(Gtk.Align.START)
+		self.utterance_box.set_halign(Gtk.Align.START)
 		self.utterance_label.set_halign(Gtk.Align.START)
 		self.message_date.set_halign(Gtk.Align.START)
+
+		self.utterance_box.set_margin_end(5)
 
 	def set_wrapper(self, wrapper):
 		"""Sets the dialog wrapper for the message."""
