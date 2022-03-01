@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-28 15:08+0100\n"
+"POT-Creation-Date: 2022-03-01 21:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,11 +38,21 @@ msgstr ""
 msgid "_About Assistant"
 msgstr ""
 
-#: data/ui/assistant.ui:22
+#: data/ui/assistant.ui:34
 msgid "Could Not Connect"
 msgstr ""
 
-#: data/ui/assistant.ui:23
+#: data/ui/assistant.ui:35
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
+msgstr ""
+
+#. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
+#: src/skill.py:170
+msgid "No examples found."
+msgstr ""
+
+#. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
+#: src/skill.py:175
+msgid "Skill data not found."
 msgstr ""

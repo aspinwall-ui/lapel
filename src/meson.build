@@ -22,6 +22,8 @@ lapel_sources = [
   'assistant.py',
   'daemon.py',
   'message.py',
+  'skill.py',
+  'skills_page.py',
   'window.py',
 ]
 

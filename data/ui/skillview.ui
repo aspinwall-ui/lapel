@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+	<requires lib="gtk" version="4.0"/>
+	<template class="SkillView" parent="GtkBox">
+		<property name="orientation">vertical</property>
+		<property name="spacing">5</property>
+
+		<style>
+			<class name="skill-view"/>
+		</style>
+
+		<child>
+			<object class="GtkLabel" id="title_label">
+				<property name="halign">start</property>
+				<property name="wrap">true</property>
+				<style>
+					<class name="title-4"/>
+				</style>
+			</object>
+		</child>
+
+		<child>
+			<object class="GtkLabel" id="examples_label">
+				<property name="halign">start</property>
+				<property name="wrap">true</property>
+				<property name="margin-start">10</property>
+			</object>
+		</child>
+	</template>
+</interface>

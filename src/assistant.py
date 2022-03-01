@@ -75,6 +75,7 @@ class AssistantContent(Gtk.Box):
 
 	def handle_error(self, error):
 		"""Handles errors."""
+		print(error)
 		self.no_connection.show()
 		self.no_connection.set_reveal_child(True)
 		self.input_container.set_sensitive(False)

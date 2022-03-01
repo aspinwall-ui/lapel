@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+	<requires lib="adw" version="1.0"/>
+	<requires lib="gtk" version="4.0"/>
+	<template class="SkillsContent" parent="GtkBox">
+		<property name="orientation">vertical</property>
+
+		<child>
+			<object class="GtkScrolledWindow">
+				<child>
+					<object class="AdwClampScrollable">
+						<property name="vexpand">true</property>
+
+						<child>
+							<object class="GtkListView" id="skills_list">
+								<property name="show-separators">true</property>
+
+								<style>
+									<class name="skills-list"/>
+								</style>
+							</object>
+						</child>
+					</object>
+				</child>
+			</object>
+		</child>
+	</template>
+</interface>

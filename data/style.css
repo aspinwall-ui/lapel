@@ -49,3 +49,11 @@
 .speech-view-container {
 	padding: 12px;
 }
+
+.skills-list {
+	border: 1px solid @borders;
+}
+
+.skill-view {
+	padding: 12px;
+}

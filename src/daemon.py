@@ -9,6 +9,7 @@ import threading
 import inspect
 
 from .message import LapelMessage
+from .skill import LapelSkill
 
 daemon = None
 
@@ -25,6 +26,7 @@ class MessageBusDaemon:
 		self.client.run_in_thread()
 
 		self.messages = Gio.ListStore(item_type=LapelMessage)
+		self.skills = Gio.ListStore(item_type=LapelSkill)
 
 		self.client.on('speak', self.to_message)
 		self.client.on('recognizer_loop:utterance', self.to_message)
@@ -47,6 +49,8 @@ class MessageBusDaemon:
 
 	def send_message(self, message):
 		"""Sends a text message to the daemon."""
+		self.client.emit(Message('skillmanager.list'))
+		self.client.emit(Message('skillsmanager.list'))
 		self.client.emit(Message('recognizer_loop:record_end'))
 		send_thread = threading.Thread(target=self.client.emit,
 			args=[Message('recognizer_loop:utterance',
@@ -57,6 +61,11 @@ class MessageBusDaemon:
 	def set_error_handler(self, handler):
 		"""Sets the function to be called when an error occurs."""
 		self.error_handler_func = handler
+
+	def refresh_skills(self, *args):
+		"""Sends a signal to refresh the skills list."""
+		t = threading.Thread(target=self.client.emit(Message('skillmanager.list')))
+		t.start()
 
 def get_daemon():
 	"""Returns the currently running MessageBus handler."""

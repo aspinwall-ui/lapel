@@ -4,4 +4,4 @@ data/org.dithernet.lapel.gschema.xml
 data/ui/window.ui
 data/ui/assistant.ui
 src/window.py
-
+src/skill.py

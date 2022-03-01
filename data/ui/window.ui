@@ -51,7 +51,7 @@
 								<property name="icon-name">system-run-symbolic</property>
 
 								<property name="child">
-									<object class="GtkBox"/>
+									<object class="SkillsContent"/>
 								</property>
 							</object>
 						</child>

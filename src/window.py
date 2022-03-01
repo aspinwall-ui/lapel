@@ -11,15 +11,23 @@ gi.require_version('Gtk', '4.0')
 from gi.repository import Adw, Gtk, Gio
 
 from .assistant import AssistantContent
-from .daemon import start_daemon
+from .skills_page import SkillsContent
+from .daemon import start_daemon, get_daemon
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/window.ui')
 class LapelWindow(Adw.ApplicationWindow):
 	"""Main window for the program."""
 	__gtype_name__ = 'LapelWindow'
 
+	content_stack = Gtk.Template.Child()
+
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
+		daemon = get_daemon()
+		self.content_stack.get_pages().connect(
+			'selection-changed',
+			daemon.refresh_skills
+		)
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/about.ui')
 class AboutDialog(Gtk.AboutDialog):
