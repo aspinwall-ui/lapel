@@ -20,10 +20,33 @@ class LapelWindow(Adw.ApplicationWindow):
 	__gtype_name__ = 'LapelWindow'
 
 	content_stack = Gtk.Template.Child()
+	assistant_page = Gtk.Template.Child()
+
+	no_connection = Gtk.Template.Child()
+	no_connection_status = Gtk.Template.Child()
 
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
 		self.daemon = get_daemon()
+
+		self.daemon.client.on('error', self.handle_error)
+		self.daemon.client.on('mycroft.ready', self.ready)
+		self.no_connection.hide()
+
+		self.daemon.refresh_skills()
+
+	def handle_error(self, error):
+		"""Handles errors."""
+		print(error)
+		self.no_connection.show()
+		self.no_connection.set_reveal_child(True)
+		self.assistant_page.get_child().content_flap.set_reveal_flap(False)
+
+	def ready(self, *args):
+		"""Recovers after an error."""
+		self.no_connection.set_receives_default(False)
+		self.no_connection.set_reveal_child(False)
+		self.no_connection.hide()
 		self.daemon.refresh_skills()
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/about.ui')

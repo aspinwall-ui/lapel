@@ -31,28 +31,55 @@
 				</child>
 
 				<child>
-					<object class="AdwViewStack" id="content_stack">
-						<child>
-							<object class="AdwViewStackPage" id="assistant_page">
-								<property name="name">assistant</property>
-								<property name="title" translatable="yes">Assistant</property>
-								<property name="icon-name">microphone-sensitivity-medium-symbolic</property>
+					<object class="GtkOverlay">
+						<child type="overlay">
+							<object class="GtkRevealer" id="no_connection">
+								<property name="reveal-child">false</property>
+								<property name="transition-type">crossfade</property>
 
-								<property name="child">
-									<object class="AssistantContent"/>
-								</property>
+								<style>
+									<class name="no-connection-overlay"/>
+								</style>
+
+								<child>
+									<object class="AdwStatusPage" id="no_connection_status">
+										<property name="icon-name">network-error-symbolic</property>
+										<property name="title" translatable="yes">Could Not Connect</property>
+										<property name="description" translatable="yes">Failed to connect to Mycroft websocket. Make sure that Mycroft is running.</property>
+
+										<style>
+											<class name="no-connection-status"/>
+										</style>
+									</object>
+								</child>
 							</object>
 						</child>
 
 						<child>
-							<object class="AdwViewStackPage" id="skills_page">
-								<property name="name">skills</property>
-								<property name="title" translatable="yes">Skills</property>
-								<property name="icon-name">system-run-symbolic</property>
+							<object class="AdwViewStack" id="content_stack">
+								<child>
+									<object class="AdwViewStackPage" id="assistant_page">
+										<property name="name">assistant</property>
+										<property name="title" translatable="yes">Assistant</property>
+										<property name="icon-name">microphone-sensitivity-medium-symbolic</property>
 
-								<property name="child">
-									<object class="SkillsContent"/>
-								</property>
+										<property name="child">
+											<object class="AssistantContent"/>
+										</property>
+									</object>
+								</child>
+
+								<child>
+									<object class="AdwViewStackPage" id="skills_page">
+										<property name="name">skills</property>
+										<property name="title" translatable="yes">Skills</property>
+										<property name="icon-name">system-run-symbolic</property>
+
+										<property name="child">
+											<object class="SkillsContent"/>
+										</property>
+									</object>
+								</child>
 							</object>
 						</child>
 					</object>

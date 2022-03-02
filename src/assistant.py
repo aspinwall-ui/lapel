@@ -25,8 +25,6 @@ class AssistantContent(Gtk.Box):
 
 	content_flap = Gtk.Template.Child()
 	message_list = Gtk.Template.Child()
-	no_connection = Gtk.Template.Child()
-	no_connection_status = Gtk.Template.Child()
 	scroll_down_button = Gtk.Template.Child()
 
 	speech_view = Gtk.Template.Child()
@@ -37,13 +35,9 @@ class AssistantContent(Gtk.Box):
 	vadjustment = Gtk.Template.Child()
 	prev_upper = 0
 
-	has_connection = True
-
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
 		self.daemon = get_daemon()
-		self.daemon.client.on('error', self.handle_error)
-		self.daemon.client.on('mycroft.ready', self.ready)
 		self.daemon.client.on('recognizer_loop:wakeword', self.start_record)
 		self.daemon.client.on('recognizer_loop:record_end', self.speech_timeout)
 		self.store = self.daemon.messages
@@ -56,10 +50,7 @@ class AssistantContent(Gtk.Box):
 			'document-send-symbolic'
 		)
 		self.input_entry.connect('icon-release', self.send_message)
-
 		self.content_flap.connect('notify::reveal-flap', self.speech_flap_closed)
-
-		self.no_connection.hide()
 
 	def create_message_view(self, message, *args):
 		self.content_flap.set_reveal_flap(False)
@@ -72,24 +63,6 @@ class AssistantContent(Gtk.Box):
 		"""Stops recording mode."""
 		if self.content_flap.get_reveal_flap() is False:
 			self.daemon.stop_record()
-
-	def handle_error(self, error):
-		"""Handles errors."""
-		print(error)
-		self.no_connection.show()
-		self.no_connection.set_reveal_child(True)
-		self.input_container.set_sensitive(False)
-		self.content_flap.set_reveal_flap(False)
-		self.has_connection = False
-
-	def ready(self, *args):
-		"""Recovers after an error."""
-		self.no_connection.set_receives_default(False)
-		self.no_connection.set_reveal_child(False)
-		self.no_connection.hide()
-		self.input_container.set_sensitive(True)
-		self.has_connection = True
-		self.daemon.refresh_skills()
 
 	@Gtk.Template.Callback()
 	def send_message(self, entry, *args):
