@@ -56,7 +56,7 @@ class MessageBusDaemon:
 		else:
 			try:
 				context = {"source": reply_to.context["destination"],
-				"destination": reply_to.context["source"]}
+					"destination": reply_to.context["source"]}
 			except KeyError:
 				context = {}
 			self.client.emit(Message('recognizer_loop:utterance',

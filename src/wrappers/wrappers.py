@@ -23,6 +23,12 @@ class SuggestionWrapper(DialogWrapper):
 	def __init__(self, message):
 		"""Initializes a SuggestionWrapper."""
 		super().__init__(message)
+		# Imported here to avoid dependency loop
+		from ..daemon import get_daemon
+		self.daemon = get_daemon()
+		self.daemon.client.on('speak', self.hide_buttons)
+		self.daemon.client.on('recognizer_loop:utterance', self.hide_buttons)
+
 		self.button_revealer = Gtk.Revealer(reveal_child=True, hexpand=True)
 
 		scroll = Gtk.ScrolledWindow(hexpand=True)
@@ -50,10 +56,12 @@ class SuggestionWrapper(DialogWrapper):
 
 	def do_suggestion(self, button, answer):
 		"""Sends a message from a suggestion."""
-		from ..daemon import get_daemon
-		daemon = get_daemon()
 		daemon.client.emit(Message('active_skill_request'))
 		daemon.send_message(answer, reply_to=self.message)
+		self.hide_buttons()
+
+	def hide_buttons(self, *args):
+		"""Hides the buttons."""
 		self.button_revealer.set_reveal_child(False)
 
 class ConfirmDialog(SuggestionWrapper):
