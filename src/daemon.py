@@ -6,8 +6,6 @@ from mycroft_bus_client import MessageBusClient, Message
 from gi.repository import Gio, GObject
 import threading
 
-import inspect
-
 from .message import LapelMessage
 from .skill import LapelSkill
 
@@ -63,7 +61,7 @@ class MessageBusDaemon:
 	# Skills
 	def refresh_skills(self, *args):
 		"""Sends a signal to refresh the skills list."""
-		t = threading.Thread(target=self.client.emit(Message('skillmanager.list')))
+		t = threading.Thread(target=self.client.emit, args=[Message('skillmanager.list')])
 		t.start()
 
 	def add_skill(self, skill_id, data=None):
