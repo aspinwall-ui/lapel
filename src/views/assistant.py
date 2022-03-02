@@ -5,8 +5,8 @@ Code for the assistant view.
 from gi.repository import Gtk
 import sys
 
-from .daemon import get_daemon
-from .message import MessageView
+from ..daemon import get_daemon
+from ..types.message import MessageView
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/speechview.ui')
 class SpeechView(Gtk.Box):

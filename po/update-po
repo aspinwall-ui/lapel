@@ -1,7 +1,7 @@
 #!/bin/sh
-if [ ! -e src ]; then echo "Not in aspinwall source directory"; exit 1; fi
+if [ ! -e src ]; then echo "Not in lapel source directory"; exit 1; fi
 if [ -e output ]; then rm -r output; fi
-if [ -e /tmp/aspinwall ]; then rm -r /tmp/aspinwall; fi
-meson --prefix=/tmp/aspinwall . output
+if [ -e /tmp/lapel ]; then rm -r /tmp/lapel; fi
+meson --prefix=/tmp/lapel . output
 meson compile -C output
 meson compile lapel-update-po -C output

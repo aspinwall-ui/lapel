@@ -19,14 +19,12 @@ configure_file(
 
 lapel_sources = [
   '__init__.py',
-  'assistant.py',
   'daemon.py',
-  'message.py',
-  'skill.py',
-  'skills_page.py',
-  'window.py',
+  'window.py'
 ]
 
 install_data(lapel_sources, install_dir: moduledir)
 
+subdir('types')
+subdir('views')
 subdir('wrappers')

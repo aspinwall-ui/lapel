@@ -10,8 +10,8 @@ gi.require_version('Gtk', '4.0')
 
 from gi.repository import Adw, Gtk, Gio
 
-from .assistant import AssistantContent
-from .skills_page import SkillsContent
+from .views.assistant import AssistantContent # noqa: F401
+from .views.skills import SkillsContent # noqa: F401
 from .daemon import start_daemon, get_daemon
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/window.ui')

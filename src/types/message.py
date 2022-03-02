@@ -4,9 +4,8 @@ Code for storing information about messages.
 """
 from gi.repository import Gtk, GObject
 import time
-import threading
 
-from .wrappers import dialog_wrapper_for
+from ..wrappers import dialog_wrapper_for
 
 class LapelMessage(GObject.Object):
 	"""

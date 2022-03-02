@@ -2,12 +2,10 @@
 """
 Code for the skills page.
 """
-from mycroft_bus_client import Message
-from gi.repository import Gio, Gtk
-import threading
+from gi.repository import Gtk
 
-from .daemon import get_daemon
-from .skill import SkillView
+from ..daemon import get_daemon
+from ..types.skill import SkillView
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/skills.ui')
 class SkillsContent(Gtk.Box):

@@ -86,14 +86,14 @@ class LapelSkill(GObject.Object):
 					self.data = {}
 
 					# Get icon and title
-					img_title_exp = re.compile("<img[^>]*src='([^']*)'.*\/>\s(.*)")
+					img_title_exp = re.compile("<img[^>]*src='([^']*)'.*\/>\s(.*)") # noqa: W605
 					img_title_match = img_title_exp.findall(readme_content)
 
 					if img_title_match:
 						try:
 							self.data['icon'] = img_title_match[0][0]
 							self.data['title'] = img_title_match[0][1]
-						except:
+						except (ValueError, KeyError):
 							print("Could not find title and icon for skill with ID " + self.skill_id)
 							self.data['icon'] = None
 							self.data['title'] = None
@@ -103,7 +103,7 @@ class LapelSkill(GObject.Object):
 							self.data['title'] = None
 
 					# Get examples
-					examples_exp = re.compile('## Examples.*\n.*"(.*)"\n\*\s"(.*)"')
+					examples_exp = re.compile('## Examples.*\n.*"(.*)"\n\*\s"(.*)"') # noqa: W605
 					examples_match = examples_exp.findall(readme_content)
 					if examples_match:
 						self.data['examples'] = examples_match[0]
@@ -111,7 +111,7 @@ class LapelSkill(GObject.Object):
 						self.data['examples'] = []
 
 					# Get categories
-					category_exp = re.compile("## Category.*\n\*\*(.*)\*\*")
+					category_exp = re.compile("## Category.*\n\*\*(.*)\*\*") # noqa: W605
 					category_match = category_exp.findall(readme_content)
 					if category_match:
 						self.data['category'] = category_match[0]
@@ -167,9 +167,9 @@ class SkillView(Gtk.Box):
 			else:
 				self.examples_label.set_use_markup(True)
 				# TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
-				self.examples_label.set_label('<i>' + _('No examples found.') + '</i>')
+				self.examples_label.set_label('<i>' + _('No examples found.') + '</i>') # noqa: F821
 		else:
 			self.title_label.set_label(skill.id)
 			self.examples_label.set_use_markup(True)
 			# TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
-			self.examples_label.set_label('<i>' + _("Skill data not found.") + '</i>')
+			self.examples_label.set_label('<i>' + _("Skill data not found.") + '</i>') # noqa: F821

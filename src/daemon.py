@@ -3,11 +3,11 @@
 Contains code for the message bus daemon.
 """
 from mycroft_bus_client import MessageBusClient, Message
-from gi.repository import Gio, GObject
+from gi.repository import Gio
 import threading
 
-from .message import LapelMessage
-from .skill import LapelSkill
+from .types.message import LapelMessage
+from .types.skill import LapelSkill
 
 daemon = None
 
