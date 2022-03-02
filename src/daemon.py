@@ -49,8 +49,6 @@ class MessageBusDaemon:
 
 	def send_message(self, message):
 		"""Sends a text message to the daemon."""
-		self.client.emit(Message('skillmanager.list'))
-		self.client.emit(Message('skillsmanager.list'))
 		self.client.emit(Message('recognizer_loop:record_end'))
 		send_thread = threading.Thread(target=self.client.emit,
 			args=[Message('recognizer_loop:utterance',
@@ -62,10 +60,23 @@ class MessageBusDaemon:
 		"""Sets the function to be called when an error occurs."""
 		self.error_handler_func = handler
 
+	# Skills
 	def refresh_skills(self, *args):
 		"""Sends a signal to refresh the skills list."""
 		t = threading.Thread(target=self.client.emit(Message('skillmanager.list')))
 		t.start()
+
+	def add_skill(self, skill_id, data=None):
+		"""Adds a skill to the skill store."""
+		self.skills.append(LapelSkill(skill_id, data))
+
+	def remove_skill(self, skill_id):
+		"""Removes a skill from the skill store."""
+		skills = list(self.skills)
+		for skill in skills:
+			if skill.id == skill_id:
+				self.skills.remove(skill)
+				return
 
 def get_daemon():
 	"""Returns the currently running MessageBus handler."""

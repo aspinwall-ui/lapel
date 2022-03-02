@@ -89,6 +89,7 @@ class AssistantContent(Gtk.Box):
 		self.no_connection.hide()
 		self.input_container.set_sensitive(True)
 		self.has_connection = True
+		self.daemon.refresh_skills()
 
 	@Gtk.Template.Callback()
 	def send_message(self, entry, *args):

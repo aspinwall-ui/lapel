@@ -23,11 +23,8 @@ class LapelWindow(Adw.ApplicationWindow):
 
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
-		daemon = get_daemon()
-		self.content_stack.get_pages().connect(
-			'selection-changed',
-			daemon.refresh_skills
-		)
+		self.daemon = get_daemon()
+		self.daemon.refresh_skills()
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/about.ui')
 class AboutDialog(Gtk.AboutDialog):
