@@ -9,9 +9,9 @@ dialog_wrappers = {
 	"remove.confirm": ConfirmDialog
 }
 
-def dialog_wrapper_for(dialog):
-	"""Returns a dialog wrapper for the provided dialog."""
-	print(dialog)
+def dialog_wrapper_for(message):
+	"""Returns a dialog wrapper for the provided message."""
+	dialog = message.data['meta']['dialog']
 	if dialog in dialog_wrappers.keys():
-		return dialog_wrappers[dialog]()
+		return dialog_wrappers[dialog](message)
 	return None

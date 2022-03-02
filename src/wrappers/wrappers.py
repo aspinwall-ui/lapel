@@ -2,6 +2,7 @@
 """
 Common wrappers.
 """
+from mycroft_bus_client import Message
 from gi.repository import Gtk
 
 class DialogWrapper(Gtk.Box):
@@ -10,17 +11,18 @@ class DialogWrapper(Gtk.Box):
 	"""
 	__gtype_name__ = 'DialogWrapper'
 
-	def __init__(self, *args, **kwargs):
+	def __init__(self, message):
 		"""Initializes a SuggestionWrapper."""
-		super().__init__(*args, **kwargs)
+		super().__init__()
+		self.message = message
 
 class SuggestionWrapper(DialogWrapper):
 	"""
 	DialogWrapper widget that provides suggestion buttons.
 	"""
-	def __init__(self):
+	def __init__(self, message):
 		"""Initializes a SuggestionWrapper."""
-		super().__init__()
+		super().__init__(message)
 		self.button_revealer = Gtk.Revealer(reveal_child=True, hexpand=True)
 
 		scroll = Gtk.ScrolledWindow(hexpand=True)
@@ -49,14 +51,16 @@ class SuggestionWrapper(DialogWrapper):
 	def do_suggestion(self, button, answer):
 		"""Sends a message from a suggestion."""
 		from ..daemon import get_daemon
-		get_daemon().send_message(answer)
+		daemon = get_daemon()
+		daemon.client.emit(Message('active_skill_request'))
+		daemon.send_message(answer, reply_to=self.message)
 		self.button_revealer.set_reveal_child(False)
 
 class ConfirmDialog(SuggestionWrapper):
 	"""
 	SuggestionWrapper with Confirm and Cancel buttons.
 	"""
-	def __init__(self):
-		super().__init__()
+	def __init__(self, message):
+		super().__init__(message)
 		self.add_button('confirm', 'Confirm')
 		self.add_button('cancel', 'Cancel')

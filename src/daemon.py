@@ -43,15 +43,31 @@ class MessageBusDaemon:
 		Turns the provided Message to a LapelMessage and adds it to the daemon's
 		message list.
 		"""
+		print(message, message.msg_type, message.data, message.context)
 		self.messages.append(LapelMessage(message))
 
-	def send_message(self, message):
+	def _send_message(self, message, reply_to=None):
 		"""Sends a text message to the daemon."""
 		self.client.emit(Message('recognizer_loop:record_end'))
-		send_thread = threading.Thread(target=self.client.emit,
-			args=[Message('recognizer_loop:utterance',
+		if not reply_to:
+			self.client.emit(Message('recognizer_loop:utterance',
 				{"utterances": [message], "lang": 'en-us'})
-		])
+			)
+		else:
+			try:
+				context = {"source": reply_to.context["destination"],
+				"destination": reply_to.context["source"]}
+			except KeyError:
+				context = {}
+			self.client.emit(Message('recognizer_loop:utterance',
+				{"utterances": [message], "lang": 'en-us'}, context
+			))
+
+	def send_message(self, message, reply_to=None):
+		"""Starts a thread to send a text message to the daemon."""
+		send_thread = threading.Thread(target=self._send_message,
+			args=[message, reply_to]
+		)
 		send_thread.start()
 
 	def set_error_handler(self, handler):

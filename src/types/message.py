@@ -32,6 +32,11 @@ class LapelMessage(GObject.Object):
 		"""Message data."""
 		return self.message.data
 
+	@GObject.Property(flags=GObject.ParamFlags.READABLE)
+	def context(self):
+		"""Message context."""
+		return self.message.context
+
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/messageview.ui')
 class MessageView(Gtk.ListBoxRow):
 	"""
@@ -81,7 +86,7 @@ class MessageView(Gtk.ListBoxRow):
 				dialog = message.data['meta']['dialog']
 				if dialog == 'unknown':
 					self.utterance_label.add_css_class('error')
-				self.set_wrapper(dialog_wrapper_for(dialog))
+				self.set_wrapper(dialog_wrapper_for(message))
 
 	def is_sent(self):
 		"""
