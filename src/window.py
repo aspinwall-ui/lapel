@@ -12,6 +12,7 @@ from gi.repository import Adw, Gtk, Gio
 
 from .views.assistant import AssistantContent # noqa: F401
 from .views.skills import SkillsContent # noqa: F401
+from .views.preferences import LapelPreferences
 from .daemon import start_daemon, get_daemon
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/window.ui')
@@ -73,6 +74,7 @@ class Application(Adw.Application):
 		if not win:
 			win = LapelWindow(application=self)
 		self.create_action('about', self.on_about_action)
+		self.create_action('preferences', self.on_preferences_action)
 		win.present()
 
 	def on_about_action(self, widget, _):
@@ -80,7 +82,8 @@ class Application(Adw.Application):
 		about.present()
 
 	def on_preferences_action(self, widget, _):
-		print('app.preferences action activated')
+		preferences = LapelPreferences()
+		preferences.present()
 
 	def create_action(self, name, callback):
 		"""Add an action and connect it to a callback."""

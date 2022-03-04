@@ -5,6 +5,7 @@
 		<file>ui/about.ui</file>
 		<file>ui/assistant.ui</file>
 		<file>ui/messageview.ui</file>
+		<file>ui/preferences.ui</file>
 		<file>ui/skills.ui</file>
 		<file>ui/skillview.ui</file>
 		<file>ui/speechview.ui</file>

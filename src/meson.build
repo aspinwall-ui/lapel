@@ -19,6 +19,7 @@ configure_file(
 
 lapel_sources = [
   '__init__.py',
+  'config.py',
   'daemon.py',
   'window.py'
 ]

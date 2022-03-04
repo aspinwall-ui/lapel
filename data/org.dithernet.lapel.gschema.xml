@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="lapel">
 	<schema id="org.dithernet.lapel" path="/org/dithernet/lapel/">
+		<key name="websocket-address" type="s">
+			<default>"0.0.0.0"</default>
+			<summary>Websocket address</summary>
+			<description>
+				Websocket address used when connecting to Mycroft.
+			</description>
+		</key>
+
+		<key name="websocket-port" type="i">
+			<default>8181</default>
+			<summary>Websocket port</summary>
+			<description>
+				Websocket port used when connecting to Mycroft.
+			</description>
+		</key>
 	</schema>
 </schemalist>

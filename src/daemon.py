@@ -8,6 +8,7 @@ import threading
 
 from .types.message import LapelMessage
 from .types.skill import LapelSkill
+from .config import config
 
 daemon = None
 
@@ -20,7 +21,7 @@ class MessageBusDaemon:
 
 	def __init__(self):
 		"""Sets up the MessageBus handler."""
-		self.client = MessageBusClient()
+		self.client = MessageBusClient(host=config['websocket-address'], port=config['websocket-port'])
 		self.client.run_in_thread()
 
 		self.messages = Gio.ListStore(item_type=LapelMessage)

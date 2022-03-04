@@ -56,8 +56,8 @@ class SuggestionWrapper(DialogWrapper):
 
 	def do_suggestion(self, button, answer):
 		"""Sends a message from a suggestion."""
-		daemon.client.emit(Message('active_skill_request'))
-		daemon.send_message(answer, reply_to=self.message)
+		self.daemon.client.emit(Message('active_skill_request'))
+		self.daemon.send_message(answer, reply_to=self.message)
 		self.hide_buttons()
 
 	def hide_buttons(self, *args):
