@@ -52,6 +52,8 @@ class LapelWindow(Adw.ApplicationWindow):
 		Shows/hides the search icon based on whether the skill list is shown or not.
 		"""
 		if self.content_stack.get_visible_child_name() == 'skills':
+			vadjust = self.skills_content.skills_list.get_vadjustment()
+			vadjust.set_value(vadjust.get_lower())
 			self.skill_search_button.set_visible(True)
 		else:
 			self.skills_content.selection.set_selected(0)

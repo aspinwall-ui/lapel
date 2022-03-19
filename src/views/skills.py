@@ -54,6 +54,9 @@ class SkillsContent(Gtk.Box):
 		self.skills_list.set_model(self.selection)
 		self.skills_list.set_factory(factory)
 
+		vadjust = self.skills_list.get_vadjustment()
+		vadjust.set_value(vadjust.get_lower())
+
 	def show_search(self, button, *args):
 		if button.get_active():
 			self.search_bar.set_search_mode(True)
