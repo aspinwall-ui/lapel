@@ -6,6 +6,21 @@
 		<property name="orientation">vertical</property>
 
 		<child>
+			<object class="GtkSearchBar" id="search_bar">
+				<property name="show-close-button">true</property>
+				<child>
+					<object class="AdwClamp">
+						<child>
+							<object class="GtkSearchEntry" id="search_entry">
+								<property name="hexpand">true</property>
+							</object>
+						</child>
+					</object>
+				</child>
+			</object>
+		</child>
+
+		<child>
 			<object class="GtkScrolledWindow">
 				<child>
 					<object class="AdwClampScrollable">

@@ -27,6 +27,16 @@
 								<property name="menu-model">primary_menu</property>
 							</object>
 						</child>
+
+						<child type="end">
+							<object class="GtkToggleButton" id="skill_search_button">
+								<property name="icon-name">edit-find-symbolic</property>
+								<property name="visible">false</property>
+								<accessibility>
+									<property name="label" translatable="yes">Search skills</property>
+								</accessibility>
+							</object>
+						</child>
 					</object>
 				</child>
 
@@ -76,7 +86,7 @@
 										<property name="icon-name">system-run-symbolic</property>
 
 										<property name="child">
-											<object class="SkillsContent"/>
+											<object class="SkillsContent" id="skills_content"/>
 										</property>
 									</object>
 								</child>

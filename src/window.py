@@ -8,7 +8,7 @@ import gi
 gi.require_version('Adw', '1')
 gi.require_version('Gtk', '4.0')
 
-from gi.repository import Adw, Gtk, Gio
+from gi.repository import Adw, Gtk, Gio, GObject
 
 from .views.assistant import AssistantContent # noqa: F401
 from .views.skills import SkillsContent # noqa: F401
@@ -21,10 +21,13 @@ class LapelWindow(Adw.ApplicationWindow):
 	__gtype_name__ = 'LapelWindow'
 
 	content_stack = Gtk.Template.Child()
+	skill_search_button = Gtk.Template.Child()
 	assistant_page = Gtk.Template.Child()
 
 	no_connection = Gtk.Template.Child()
 	no_connection_status = Gtk.Template.Child()
+
+	skills_content = Gtk.Template.Child()
 
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
@@ -35,6 +38,24 @@ class LapelWindow(Adw.ApplicationWindow):
 		self.no_connection.hide()
 
 		self.daemon.refresh_skills()
+
+		self.content_stack.connect('notify::visible-child', self.show_search_icon)
+		self.skill_search_button.bind_property(
+			'active',
+			self.skills_content.search_bar, 'search-mode-enabled',
+			flags=GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE
+		)
+
+	def show_search_icon(self, *args):
+		"""
+		Shows/hides the search icon based on whether the skill list is shown or not.
+		"""
+		if self.content_stack.get_visible_child_name() == 'skills':
+			self.skill_search_button.set_visible(True)
+		else:
+			self.skills_content.selection.set_selected(0)
+			self.skill_search_button.set_visible(False)
+			self.skill_search_button.set_active(False)
 
 	def handle_error(self, error):
 		"""Handles errors."""
