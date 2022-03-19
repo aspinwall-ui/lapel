@@ -28,6 +28,7 @@ class LapelWindow(Adw.ApplicationWindow):
 	no_connection_status = Gtk.Template.Child()
 
 	skills_content = Gtk.Template.Child()
+	view_switcher = Gtk.Template.Child()
 
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
@@ -63,12 +64,14 @@ class LapelWindow(Adw.ApplicationWindow):
 		self.no_connection.show()
 		self.no_connection.set_reveal_child(True)
 		self.assistant_page.get_child().content_flap.set_reveal_flap(False)
+		self.view_switcher.set_sensitive(False)
 
 	def ready(self, *args):
 		"""Recovers after an error."""
 		self.no_connection.set_receives_default(False)
 		self.no_connection.set_reveal_child(False)
 		self.no_connection.hide()
+		self.view_switcher.set_sensitive(True)
 		self.daemon.refresh_skills()
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/about.ui')

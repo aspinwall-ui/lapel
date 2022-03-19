@@ -16,7 +16,7 @@
 				<child>
 					<object class="AdwHeaderBar">
 						<child type="title">
-							<object class="AdwViewSwitcher">
+							<object class="AdwViewSwitcher" id="view_switcher">
 								<property name="stack">content_stack</property>
 							</object>
 						</child>
