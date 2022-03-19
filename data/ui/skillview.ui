@@ -20,10 +20,31 @@
 		</child>
 
 		<child>
+			<object class="GtkLabel" id="description_label">
+				<property name="halign">start</property>
+				<property name="hexpand">true</property>
+				<property name="wrap">true</property>
+			</object>
+		</child>
+
+		<child>
+			<object class="GtkLabel">
+				<!-- TRANSLATORS: Used for skill usage examples -->
+				<property name="halign">start</property>
+				<property name="label" translatable="yes">Examples</property>
+
+				<attributes>
+					<attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
+				</attributes>
+			</object>
+		</child>
+
+		<child>
 			<object class="GtkLabel" id="examples_label">
 				<property name="halign">start</property>
 				<property name="wrap">true</property>
-				<property name="margin-start">10</property>
+				<property name="margin-start">12</property>
+				<property name="margin-end">12</property>
 			</object>
 		</child>
 	</template>

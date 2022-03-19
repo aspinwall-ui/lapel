@@ -9,7 +9,7 @@ from ..types.skill import SkillView
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/skills.ui')
 class SkillsContent(Gtk.Box):
-	"""Box that shows the microphone volume when speaking to Mycroft."""
+	"""List of installed skills."""
 	__gtype_name__ = 'SkillsContent'
 
 	skills_list = Gtk.Template.Child()

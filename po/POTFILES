@@ -3,6 +3,7 @@ data/org.dithernet.lapel.appdata.xml.in
 data/org.dithernet.lapel.gschema.xml
 data/ui/assistant.ui
 data/ui/preferences.ui
+data/ui/skillview.ui
 data/ui/window.ui
 src/window.py
 src/types/skill.py

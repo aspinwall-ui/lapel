@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-02 21:20+0100\n"
+"POT-Creation-Date: 2022-03-19 16:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,14 @@ msgid "Connection"
 msgstr ""
 
 #: data/ui/preferences.ui:18
-msgid "Address and port to use when connecting to Mycroft's websocket."
+msgid ""
+"Address and port to use when connecting to Mycroft's websocket. You will "
+"need to restart Assistant before the changes take effect."
+msgstr ""
+
+#. TRANSLATORS: Used for skill usage examples
+#: data/ui/skillview.ui:33
+msgid "Examples"
 msgstr ""
 
 #: data/ui/window.ui:47
@@ -71,12 +78,17 @@ msgstr ""
 msgid "_About Assistant"
 msgstr ""
 
+#. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
+#: src/types/skill.py:174
+msgid "No description found."
+msgstr ""
+
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
-#: src/types/skill.py:170
+#: src/types/skill.py:186
 msgid "No examples found."
 msgstr ""
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
-#: src/types/skill.py:175
+#: src/types/skill.py:191
 msgid "Skill data not found."
 msgstr ""

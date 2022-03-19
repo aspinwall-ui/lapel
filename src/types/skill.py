@@ -102,6 +102,14 @@ class LapelSkill(GObject.Object):
 							self.data['icon'] = None
 							self.data['title'] = None
 
+					# Get description
+					description_exp = re.compile("^# .*\n(.*)") # noqa: W605
+					description_match = description_exp.findall(readme_content)
+					if description_match:
+						self.data['description'] = description_match[0]
+					else:
+						self.data['description'] = None
+
 					# Get examples
 					examples_exp = re.compile('## Examples.*\n.*"(.*)"\n\*\s"(.*)"') # noqa: W605
 					examples_match = examples_exp.findall(readme_content)
@@ -146,6 +154,7 @@ class SkillView(Gtk.Box):
 	__gtype_name__ = 'SkillView'
 
 	title_label = Gtk.Template.Child()
+	description_label = Gtk.Template.Child()
 	examples_label = Gtk.Template.Child()
 
 	def __init__(self):
@@ -156,6 +165,13 @@ class SkillView(Gtk.Box):
 		self.skill = skill
 		if skill.data:
 			self.title_label.set_label(skill.data['title'])
+
+			if skill.data['description']:
+				self.description_label.set_label(skill.data['description'])
+			else:
+				self.description_label.set_use_markup(True)
+				# TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
+				self.description_label.set_label('<i>' + _('No description found.') + '</i>') # noqa: F821
 
 			if skill.data['examples']:
 				examples = ''
