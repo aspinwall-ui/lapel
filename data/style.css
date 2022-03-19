@@ -50,9 +50,8 @@
 	padding: 12px;
 }
 
-.skills-list {
-	border-left: 1px solid @borders;
-	border-right: 1px solid @borders;
+.skills-list row {
+	background-color: transparent;
 }
 
 .skill-view {

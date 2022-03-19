@@ -25,11 +25,8 @@
 				<child>
 					<object class="AdwClampScrollable">
 						<property name="vexpand">true</property>
-
-						<child>
+							<child>
 							<object class="GtkListView" id="skills_list">
-								<property name="show-separators">true</property>
-
 								<style>
 									<class name="skills-list"/>
 								</style>
