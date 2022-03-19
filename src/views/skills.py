@@ -17,6 +17,7 @@ class SkillsContent(Gtk.Box):
 	search_entry = Gtk.Template.Child()
 
 	in_search = False
+	no_results = Gtk.Template.Child()
 
 	def __init__(self):
 		"""Initializes a SkillsContent object."""
@@ -132,10 +133,10 @@ class SkillsContent(Gtk.Box):
 
 		self.filter.changed(Gtk.FilterChange.DIFFERENT)
 
-		#if self.filter_model.get_n_items() == 0:
-		#	self.no_results.set_visible(True)
-		#else:
-		#	self.no_results.set_visible(False)
+		if self.filter_model.get_n_items() == 0:
+			self.no_results.set_visible(True)
+		else:
+			self.no_results.set_visible(False)
 
 		# Select first item in list
 		first_item = self.skills_list.get_first_child()

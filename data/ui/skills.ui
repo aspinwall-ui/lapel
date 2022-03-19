@@ -21,17 +21,37 @@
 		</child>
 
 		<child>
-			<object class="GtkScrolledWindow">
+			<object class="GtkOverlay" id="skills_list_overlay">
+				<property name="vexpand">true</property>
+
 				<child>
-					<object class="AdwClampScrollable">
-						<property name="vexpand">true</property>
-							<child>
-							<object class="GtkListView" id="skills_list">
-								<style>
-									<class name="skills-list"/>
-								</style>
+					<object class="GtkScrolledWindow">
+						<child>
+							<object class="AdwClampScrollable">
+								<property name="vexpand">true</property>
+								<child>
+									<object class="GtkListView" id="skills_list">
+										<style>
+											<class name="skills-list"/>
+										</style>
+									</object>
+								</child>
 							</object>
 						</child>
+					</object>
+				</child>
+
+				<child type="overlay">
+					<object class="AdwStatusPage" id="no_results">
+						<property name="icon-name">system-search-symbolic</property>
+						<property name="title">No Results Found</property>
+						<property name="description">Try a different search query</property>
+
+						<style>
+							<class name="background"/>
+						</style>
+
+						<property name="visible">false</property>
 					</object>
 				</child>
 			</object>
