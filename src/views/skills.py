@@ -77,6 +77,10 @@ class SkillsContent(Gtk.Box):
 		#
 		# We send this information to LapelSkill, which has the necessary parsing
 		# functions to get the full path, information and location of the skill.
+		if self.daemon.skills.get_n_items() > 0:
+			self.daemon.skills.remove_all()
+			self.sorter.changed(Gtk.SorterChange.DIFFERENT)
+			self.filter.changed(Gtk.FilterChange.DIFFERENT)
 		skills = message.data
 		for skill_id, data in skills.items():
 			self.daemon.add_skill(skill_id, data)
