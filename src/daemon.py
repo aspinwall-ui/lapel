@@ -78,6 +78,8 @@ class MessageBusDaemon:
 	# Skills
 	def refresh_skills(self, *args):
 		"""Sends a signal to refresh the skills list."""
+		if self.skills.get_n_items() > 0:
+			self.skills.remove_all()
 		t = threading.Thread(target=self.client.emit, args=[Message('skillmanager.list')])
 		t.start()
 
