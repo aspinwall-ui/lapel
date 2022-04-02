@@ -1,98 +1,81 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the lapel package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
-msgid ""
-msgstr ""
-"Project-Id-Version: lapel\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 18:57+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: 8bit\n"
-
 #: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
 #: data/ui/window.ui:73
 msgid "Assistant"
-msgstr ""
+msgstr "Asystent"
 
 #: data/org.dithernet.lapel.appdata.xml.in:7
 msgid "Voice assistant GUI based on Mycroft"
-msgstr ""
+msgstr "GUI asystenta głosowego oparte na Mycroft."
 
 #: data/org.dithernet.lapel.gschema.xml:6 data/ui/preferences.ui:17
 msgid "Websocket address"
-msgstr ""
+msgstr "Adres gniazda"
 
 #: data/org.dithernet.lapel.gschema.xml:7
 msgid "Websocket address used when connecting to Mycroft."
-msgstr ""
+msgstr "Adres gniazda sieciowego używanego podczas połączenia z Mycroft."
 
 #: data/org.dithernet.lapel.gschema.xml:14
 msgid "Websocket port"
-msgstr ""
+msgstr "Port gniazda"
 
 #: data/org.dithernet.lapel.gschema.xml:15
 msgid "Websocket port used when connecting to Mycroft."
-msgstr ""
+msgstr "Port gniazda sieciowego używanego podczas połączenia z Mycroft."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
-msgstr ""
+msgstr "Połączenie"
 
 #: data/ui/preferences.ui:18
 msgid ""
 "Address and port to use when connecting to Mycroft's websocket. You will "
 "need to restart Assistant before the changes take effect."
 msgstr ""
+"Adres i port do połączenia z gniazdem sieciowym Mycroft. Zmiany zostaną wprowadzone po ponownym uruchomieniu Asystenta."
 
 #. TRANSLATORS: Used for skill usage examples
 #: data/ui/skillview.ui:38
 msgid "Examples"
-msgstr ""
+msgstr "Przykłady"
 
 #: data/ui/window.ui:36
 msgid "Search skills"
-msgstr ""
+msgstr "Szukaj umiejętności"
 
 #: data/ui/window.ui:57
 msgid "Could Not Connect"
-msgstr ""
+msgstr "Połączenie nie powiodło się"
 
 #: data/ui/window.ui:58
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
 msgstr ""
+"Nie udało się połączyć z gniazdem sieciowym Mycroft. Upewnij się, że Mycroft jest uruchomiony."
 
 #: data/ui/window.ui:85
 msgid "Skills"
-msgstr ""
+msgstr "Umiejętności"
 
 #: data/ui/window.ui:104
 msgid "_Preferences"
-msgstr ""
+msgstr "_Ustawienia"
 
 #: data/ui/window.ui:108
 msgid "_About Assistant"
-msgstr ""
+msgstr "_O Asystencie"
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
 #: src/types/skill.py:174
 msgid "No description found."
-msgstr ""
+msgstr "Nie znaleziono opisu."
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
 #: src/types/skill.py:186
 msgid "No examples found."
-msgstr ""
+msgstr "Nie znaleziono przykładów."
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
 #: src/types/skill.py:191
 msgid "Skill data not found."
-msgstr ""
+msgstr "Nie znaleziono danych umiejętności."
