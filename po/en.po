@@ -1,3 +1,11 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-20 14:46+0100\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
 #: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
 #: data/ui/window.ui:73
 msgid "Assistant"
