@@ -1,9 +1,23 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lapel package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
+"Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-20 14:46+0100\n"
+"POT-Creation-Date: 2022-04-02 18:57+0200\n"
+"PO-Revision-Date: 2022-04-03 07:53+0000\n"
+"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/aspinwall-ui/"
+"lapel/fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
 #: data/ui/window.ui:73
@@ -12,78 +26,79 @@ msgstr "Assistant"
 
 #: data/org.dithernet.lapel.appdata.xml.in:7
 msgid "Voice assistant GUI based on Mycroft"
-msgstr "Voice assistant GUI based on Mycroft"
+msgstr "Interface graphique de l'assistant vocal basée sur Mycroft"
 
 #: data/org.dithernet.lapel.gschema.xml:6 data/ui/preferences.ui:17
 msgid "Websocket address"
-msgstr "Websocket address"
+msgstr "Adresse Websocket"
 
 #: data/org.dithernet.lapel.gschema.xml:7
 msgid "Websocket address used when connecting to Mycroft."
-msgstr "Websocket address used when connecting to Mycroft."
+msgstr "Adresse Websocket utilisée lors de la connexion à Mycroft."
 
 #: data/org.dithernet.lapel.gschema.xml:14
 msgid "Websocket port"
-msgstr "Websocket port"
+msgstr "Port Websocket"
 
 #: data/org.dithernet.lapel.gschema.xml:15
 msgid "Websocket port used when connecting to Mycroft."
-msgstr "Websocket port used when connecting to Mycroft."
+msgstr "Port Websocket utilisé lors de la connexion à Mycroft."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
-msgstr "Connection"
+msgstr "Connexion"
 
 #: data/ui/preferences.ui:18
 msgid ""
 "Address and port to use when connecting to Mycroft's websocket. You will "
 "need to restart Assistant before the changes take effect."
 msgstr ""
-"Address and port to use when connecting to Mycroft's websocket. You will "
-"need to restart Assistant before the changes take effect."
+"Adresse et port à utiliser lors de la connexion au websocket de Mycroft. "
+"Vous devrez redémarrer Assistant pour que les changements prennent effet."
 
 #. TRANSLATORS: Used for skill usage examples
 #: data/ui/skillview.ui:38
 msgid "Examples"
-msgstr "Examples"
+msgstr "Exemples"
 
 #: data/ui/window.ui:36
 msgid "Search skills"
-msgstr "Search skills"
+msgstr "Rechercher des compétences"
 
 #: data/ui/window.ui:57
 msgid "Could Not Connect"
-msgstr "Could Not Connect"
+msgstr "Impossible de se connecter"
 
 #: data/ui/window.ui:58
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
 msgstr ""
-"Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
+"Impossible de se connecter à la websocket de Mycroft. Assurez-vous que "
+"Mycroft est en cours d'exécution."
 
 #: data/ui/window.ui:85
 msgid "Skills"
-msgstr "Skills"
+msgstr "Compétences"
 
 #: data/ui/window.ui:104
 msgid "_Preferences"
-msgstr "_Preferences"
+msgstr "_Préférences"
 
 #: data/ui/window.ui:108
 msgid "_About Assistant"
-msgstr "_About Assistant"
+msgstr "_À propos de l'Assistant"
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
 #: src/types/skill.py:174
 msgid "No description found."
-msgstr "No description found."
+msgstr "Aucune description trouvée."
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
 #: src/types/skill.py:186
 msgid "No examples found."
-msgstr "No examples found."
+msgstr "Aucun exemple trouvé."
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
 #: src/types/skill.py:191
 msgid "Skill data not found."
-msgstr "Skill data not found."
+msgstr "Données sur les compétences non trouvées."
