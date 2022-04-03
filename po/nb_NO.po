@@ -8,90 +8,95 @@ msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-02 18:57+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-04-03 10:26+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"aspinwall-ui/lapel/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
 
 #: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
 #: data/ui/window.ui:73
 msgid "Assistant"
-msgstr ""
+msgstr "Assistent"
 
 #: data/org.dithernet.lapel.appdata.xml.in:7
 msgid "Voice assistant GUI based on Mycroft"
-msgstr ""
+msgstr "Grensesnitt for stemmeassistent basert på Mycroft"
 
 #: data/org.dithernet.lapel.gschema.xml:6 data/ui/preferences.ui:17
 msgid "Websocket address"
-msgstr ""
+msgstr "Vevsocket-adresse"
 
 #: data/org.dithernet.lapel.gschema.xml:7
 msgid "Websocket address used when connecting to Mycroft."
-msgstr ""
+msgstr "Vevsocket-adresse brukt ved tilkobling til Mycroft."
 
 #: data/org.dithernet.lapel.gschema.xml:14
 msgid "Websocket port"
-msgstr ""
+msgstr "Vevsocket-port"
 
 #: data/org.dithernet.lapel.gschema.xml:15
 msgid "Websocket port used when connecting to Mycroft."
-msgstr ""
+msgstr "Vevsocket-port brukt ved tilkobling til Mycroft."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
-msgstr ""
+msgstr "Tilkobling"
 
 #: data/ui/preferences.ui:18
 msgid ""
 "Address and port to use when connecting to Mycroft's websocket. You will "
 "need to restart Assistant before the changes take effect."
 msgstr ""
+"Adresse og port å bruke ved tilkobling til Mycrofts vevsocket. Start "
+"Assistenten på ny for å ta i bruk nye endringer."
 
 #. TRANSLATORS: Used for skill usage examples
 #: data/ui/skillview.ui:38
 msgid "Examples"
-msgstr ""
+msgstr "Eksempler"
 
 #: data/ui/window.ui:36
 msgid "Search skills"
-msgstr ""
+msgstr "Søkeferdigheter"
 
 #: data/ui/window.ui:57
 msgid "Could Not Connect"
-msgstr ""
+msgstr "Kunne ikke koble til"
 
 #: data/ui/window.ui:58
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
-msgstr ""
+msgstr "Klarte ikke å koble til Mycroft-vevsocket. Sørg for at Mycroft kjører."
 
 #: data/ui/window.ui:85
 msgid "Skills"
-msgstr ""
+msgstr "Ferdigheter"
 
 #: data/ui/window.ui:104
 msgid "_Preferences"
-msgstr ""
+msgstr "_Innstillinger"
 
 #: data/ui/window.ui:108
 msgid "_About Assistant"
-msgstr ""
+msgstr "_Om Assistent"
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
 #: src/types/skill.py:174
 msgid "No description found."
-msgstr ""
+msgstr "Fant ingen beskrivelser."
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
 #: src/types/skill.py:186
 msgid "No examples found."
-msgstr ""
+msgstr "Fant ingen eksempler."
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
 #: src/types/skill.py:191
 msgid "Skill data not found."
-msgstr ""
+msgstr "Fant ingen ferdighetsdata."
