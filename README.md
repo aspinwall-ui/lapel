@@ -1,4 +1,4 @@
-# Assistant
+# Assistant <a href="https://hosted.weblate.org/engage/aspinwall-ui/"><img src="https://hosted.weblate.org/widgets/aspinwall-ui/-/lapel/svg-badge.svg" alt="Translation status" /></a>
 
 Voice assistant GUI based on Mycroft
 
@@ -36,3 +36,10 @@ These are also needed if you're planning to use the provided run scripts.
 - meson
 - glib2-dev or equivalent (needed for `glib-compile-schemas`)
 - desktop-file-utils (needed for `update-desktop-database`)
+
+
+## Contributing
+
+See [Aspinwall's contributing guide](https://github.com/aspinwall-ui/aspinwall/blob/develop/docs/contributing/contributing.md).
+
+We also use Weblate for translations. [Weblate project](https://hosted.weblate.org/projects/aspinwall-ui/lapel)
