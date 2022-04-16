@@ -117,5 +117,10 @@ class AssistantContent(Gtk.Box):
 	@Gtk.Template.Callback()
 	def scroll_to_bottom(self, *args):
 		"""Scrolls to the bottom of the message list."""
+		upper = self.vadjustment.get_upper()
+		page_size = self.vadjustment.get_page_size()
+
+		self.vadjustment.set_upper(upper + page_size)
 		self.vadjustment.set_value(self.vadjustment.get_upper())
+
 		self.scroll_down_button.hide()
