@@ -82,9 +82,9 @@ class MessageView(Gtk.ListBoxRow):
 			self.utterance_label.set_label(message.data['utterance'])
 
 		if message.data:
-			if 'meta' in message.data.keys() and 'dialog' in message.data['meta'].keys():
-				dialog = message.data['meta']['dialog']
-				if dialog == 'unknown':
+			if 'meta' in message.data.keys() and 'skill' in message.data['meta'].keys():
+				skill = message.data['meta']['skill']
+				if skill == 'UnknownSkill':
 					self.utterance_label.add_css_class('error')
 				self.set_wrapper(dialog_wrapper_for(message))
 
