@@ -12,7 +12,7 @@ class DialogWrapper(Gtk.Box):
 	__gtype_name__ = 'DialogWrapper'
 
 	def __init__(self, message):
-		"""Initializes a SuggestionWrapper."""
+		"""Initializes a DialogWrapper."""
 		super().__init__()
 		self.message = message
 

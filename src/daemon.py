@@ -30,6 +30,8 @@ class MessageBusDaemon:
 		self.client.on('speak', self.to_message)
 		self.client.on('recognizer_loop:utterance', self.to_message)
 
+		self.client.on('gui.value.set', self.handle_gui_set)
+
 	def start_record(self):
 		"""Starts recording the message for voice recognition."""
 		self.client.emit(Message('mycroft.mic.listen'))
@@ -70,6 +72,13 @@ class MessageBusDaemon:
 			args=[message, reply_to]
 		)
 		send_thread.start()
+
+	def handle_gui_set(self, message):
+		"""Assigns the received GUI values to the last received message."""
+		last_message = self.messages.get_item(self.messages.get_n_items() - 1)
+		if not last_message:
+			return None
+		last_message.set_gui_values(message.data)
 
 	def set_error_handler(self, handler):
 		"""Sets the function to be called when an error occurs."""
