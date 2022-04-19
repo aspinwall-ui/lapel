@@ -42,7 +42,7 @@
 
 						<child>
 							<object class="GtkLabel">
-								<property name="label" translatable="yes">Speak to the microphone</property>
+								<property name="label" translatable="yes">Speak to the Microphone</property>
 								<property name="wrap">true</property>
 								<style>
 									<class name="title-2"/>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-02 18:57+0200\n"
+"POT-Creation-Date: 2022-04-19 16:18+0200\n"
 "PO-Revision-Date: 2022-04-03 07:53+0000\n"
 "Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/aspinwall-ui/"
@@ -24,7 +24,8 @@ msgstr ""
 msgid "Assistant"
 msgstr "Assistant"
 
-#: data/org.dithernet.lapel.appdata.xml.in:7
+#. TRANSLATORS: This is the description, as seen in the about dialog.
+#: data/org.dithernet.lapel.appdata.xml.in:7 data/ui/about.ui:29
 msgid "Voice assistant GUI based on Mycroft"
 msgstr "Interface graphique de l'assistant vocal basée sur Mycroft"
 
@@ -44,6 +45,11 @@ msgstr "Port Websocket"
 msgid "Websocket port used when connecting to Mycroft."
 msgstr "Port Websocket utilisé lors de la connexion à Mycroft."
 
+#. TRANSLATORS: You can also translate "contributors" as "programmers" or "developers".
+#: data/ui/about.ui:31
+msgid "Copyright © 2022 Aspinwall contributors"
+msgstr ""
+
 #: data/ui/preferences.ui:13
 msgid "Connection"
 msgstr "Connexion"
@@ -60,6 +66,10 @@ msgstr ""
 #: data/ui/skillview.ui:38
 msgid "Examples"
 msgstr "Exemples"
+
+#: data/ui/speechview.ui:45
+msgid "Speak to the Microphone"
+msgstr ""
 
 #: data/ui/window.ui:36
 msgid "Search skills"
@@ -102,3 +112,13 @@ msgstr "Aucun exemple trouvé."
 #: src/types/skill.py:191
 msgid "Skill data not found."
 msgstr "Données sur les compétences non trouvées."
+
+#. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
+#: src/wrappers/wrappers.py:74
+msgid "Confirm"
+msgstr ""
+
+#. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
+#: src/wrappers/wrappers.py:76
+msgid "Cancel"
+msgstr ""

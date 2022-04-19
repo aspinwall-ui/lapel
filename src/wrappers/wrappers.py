@@ -70,5 +70,7 @@ class ConfirmDialog(SuggestionWrapper):
 	"""
 	def __init__(self, message):
 		super().__init__(message)
-		self.add_button('confirm', 'Confirm')
-		self.add_button('cancel', 'Cancel')
+		# TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
+		self.add_button(_('Confirm').lower(), _('Confirm'))
+		# TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
+		self.add_button(_('Cancel').lower(), _('Cancel'))

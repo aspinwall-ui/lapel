@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 09:53+0200\n"
+"POT-Creation-Date: 2022-04-19 16:18+0200\n"
 "PO-Revision-Date: 2022-04-03 07:53+0000\n"
 "Last-Translator: knuxify <knuxfanwin8.mail@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/aspinwall-ui/"
@@ -20,7 +20,8 @@ msgstr ""
 msgid "Assistant"
 msgstr "Asystent"
 
-#: data/org.dithernet.lapel.appdata.xml.in:7
+#. TRANSLATORS: This is the description, as seen in the about dialog.
+#: data/org.dithernet.lapel.appdata.xml.in:7 data/ui/about.ui:29
 msgid "Voice assistant GUI based on Mycroft"
 msgstr "GUI asystenta głosowego oparte na Mycroft"
 
@@ -40,6 +41,11 @@ msgstr "Port gniazda"
 msgid "Websocket port used when connecting to Mycroft."
 msgstr "Port gniazda sieciowego używanego podczas połączenia z Mycroft."
 
+#. TRANSLATORS: You can also translate "contributors" as "programmers" or "developers".
+#: data/ui/about.ui:31
+msgid "Copyright © 2022 Aspinwall contributors"
+msgstr ""
+
 #: data/ui/preferences.ui:13
 msgid "Connection"
 msgstr "Połączenie"
@@ -49,12 +55,17 @@ msgid ""
 "Address and port to use when connecting to Mycroft's websocket. You will "
 "need to restart Assistant before the changes take effect."
 msgstr ""
-"Adres i port do połączenia z gniazdem sieciowym Mycroft. Zmiany zostaną wprowadzone po ponownym uruchomieniu Asystenta."
+"Adres i port do połączenia z gniazdem sieciowym Mycroft. Zmiany zostaną "
+"wprowadzone po ponownym uruchomieniu Asystenta."
 
 #. TRANSLATORS: Used for skill usage examples
 #: data/ui/skillview.ui:38
 msgid "Examples"
 msgstr "Przykłady"
+
+#: data/ui/speechview.ui:45
+msgid "Speak to the Microphone"
+msgstr ""
 
 #: data/ui/window.ui:36
 msgid "Search skills"
@@ -68,7 +79,8 @@ msgstr "Połączenie nie powiodło się"
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
 msgstr ""
-"Nie udało się połączyć z gniazdem sieciowym Mycroft. Upewnij się, że Mycroft jest uruchomiony."
+"Nie udało się połączyć z gniazdem sieciowym Mycroft. Upewnij się, że Mycroft "
+"jest uruchomiony."
 
 #: data/ui/window.ui:85
 msgid "Skills"
@@ -96,3 +108,13 @@ msgstr "Nie znaleziono przykładów."
 #: src/types/skill.py:191
 msgid "Skill data not found."
 msgstr "Nie znaleziono danych umiejętności."
+
+#. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
+#: src/wrappers/wrappers.py:74
+msgid "Confirm"
+msgstr ""
+
+#. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
+#: src/wrappers/wrappers.py:76
+msgid "Cancel"
+msgstr ""
