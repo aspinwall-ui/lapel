@@ -2,6 +2,7 @@
 """
 Contains code for the message bus daemon.
 """
+from mycroft.util.signal import create_signal
 from mycroft_bus_client import MessageBusClient, Message
 from gi.repository import Gio
 import threading
@@ -37,7 +38,7 @@ class MessageBusDaemon:
 	def stop_record(self):
 		"""Stops recording the current voice recognition message."""
 		self.client.emit(Message('mycroft.stop'))
-		self.client.emit(Message('recognizer_loop:record_end'))
+		create_signal('buttonPress')
 
 	def to_message(self, message):
 		"""
@@ -49,7 +50,6 @@ class MessageBusDaemon:
 
 	def _send_message(self, message, reply_to=None):
 		"""Sends a text message to the daemon."""
-		self.client.emit(Message('recognizer_loop:record_end'))
 		if not reply_to:
 			self.client.emit(Message('recognizer_loop:utterance',
 				{"utterances": [message], "lang": 'en-us'})
