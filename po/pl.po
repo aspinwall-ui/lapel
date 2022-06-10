@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-19 16:18+0200\n"
-"PO-Revision-Date: 2022-04-03 07:53+0000\n"
+"PO-Revision-Date: 2022-04-20 16:10+0000\n"
 "Last-Translator: knuxify <knuxfanwin8.mail@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/aspinwall-ui/"
 "lapel/pl/>\n"
@@ -44,7 +44,7 @@ msgstr "Port gniazda sieciowego używanego podczas połączenia z Mycroft."
 #. TRANSLATORS: You can also translate "contributors" as "programmers" or "developers".
 #: data/ui/about.ui:31
 msgid "Copyright © 2022 Aspinwall contributors"
-msgstr ""
+msgstr "Prawa autorskie © 2022 Deweloperzy Aspinwall"
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
@@ -65,7 +65,7 @@ msgstr "Przykłady"
 
 #: data/ui/speechview.ui:45
 msgid "Speak to the Microphone"
-msgstr ""
+msgstr "Mów do mikrofonu"
 
 #: data/ui/window.ui:36
 msgid "Search skills"
@@ -112,9 +112,9 @@ msgstr "Nie znaleziono danych umiejętności."
 #. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
 #: src/wrappers/wrappers.py:74
 msgid "Confirm"
-msgstr ""
+msgstr "Potwierdź"
 
 #. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
 #: src/wrappers/wrappers.py:76
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
