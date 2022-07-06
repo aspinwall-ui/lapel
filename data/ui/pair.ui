@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+	<requires lib="adw" version="1.0"/>
+	<requires lib="gtk" version="4.0"/>
+	<template class="LapelPairingDialog" parent="AdwWindow">
+		<property name="title" translatable="yes">Pairing</property>
+		<property name="icon-name">microphone-sensitivity-medium-symbolic</property>
+		<property name="default-width">360</property>
+		<property name="default-height">600</property>
+		<property name="modal">true</property>
+		<property name="destroy-with-parent">true</property>
+
+		<child>
+			<object class="GtkBox">
+				<property name="orientation">vertical</property>
+
+				<child>
+					<object class="AdwHeaderBar">
+						<style>
+							<class name="flat"/>
+						</style>
+					</object>
+				</child>
+
+				<child>
+					<object class="GtkScrolledWindow">
+						<property name="hscrollbar-policy">never</property>
+						<property name="vexpand">true</property>
+
+						<child>
+							<object class="AdwClamp">
+								<child>
+									<object class="GtkBox" id="container">
+										<property name="margin-top">24</property>
+										<property name="margin-bottom">24</property>
+										<property name="margin-start">12</property>
+										<property name="margin-end">12</property>
+										<property name="spacing">24</property>
+										<property name="orientation">vertical</property>
+										<property name="valign">center</property>
+
+										<child>
+											<object class="GtkLabel">
+												<property name="label" translatable="yes">Your Pairing Code:</property>
+												<property name="wrap">true</property>
+												<property name="justify">center</property>
+
+												<style>
+													<class name="title-2"/>
+												</style>
+											</object>
+										</child>
+
+										<child>
+											<object class="GtkLabel" id="pairing_code_label">
+												<property name="label">......</property>
+												<property name="halign">center</property>
+												<property name="margin-start">12</property>
+												<property name="margin-end">12</property>
+
+												<style>
+													<class name="pairing-code"/>
+													<class name="frame"/>
+													<class name="view"/>
+													<class name="monospace"/>
+												</style>
+											</object>
+										</child>
+
+										<child>
+											<object class="GtkLabel">
+												<property name="label" translatable="yes">Go to &lt;a href="https://account.mycroft.ai/pair"&gt;account.mycroft.ai/pair&lt;/a&gt; to pair your device. When asked, input the code displayed above.</property>
+												<property name="use-markup">true</property>
+												<property name="wrap">true</property>
+												<property name="justify">center</property>
+
+												<style>
+													<class name="body"/>
+												</style>
+											</object>
+										</child>
+
+										<child>
+											<object class="GtkLabel">
+												<property name="label" translatable="yes">If you do not have a Mycroft account yet, &lt;a href="https://account.mycroft.ai"&gt;create one&lt;/a&gt;.</property>
+												<property name="use-markup">true</property>
+												<property name="wrap">true</property>
+												<property name="justify">center</property>
+
+												<style>
+													<class name="body"/>
+													<class name="dim-label"/>
+												</style>
+											</object>
+										</child>
+									</object>
+								</child>
+							</object>
+						</child>
+					</object>
+				</child>
+			</object>
+		</child>
+	</template>
+</interface>

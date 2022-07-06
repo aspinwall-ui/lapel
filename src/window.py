@@ -13,6 +13,7 @@ from gi.repository import Adw, Gtk, Gio, GObject
 from .views.assistant import AssistantContent # noqa: F401
 from .views.skills import SkillsContent # noqa: F401
 from .views.preferences import LapelPreferences
+from .views.pair import LapelPairingDialog
 from .daemon import start_daemon, get_daemon
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/window.ui')
@@ -33,6 +34,8 @@ class LapelWindow(Adw.ApplicationWindow):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
 		self.daemon = get_daemon()
+		if not self.daemon.is_paired():
+			LapelPairingDialog(parent=self).present()
 
 		self.daemon.client.on('error', self.handle_error)
 		self.daemon.client.on('mycroft.ready', self.ready)

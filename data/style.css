@@ -57,3 +57,9 @@
 .skill-view {
 	padding: 12px;
 }
+
+.pairing-code {
+	font-size: 2.5em;
+	font-weight: bold;
+	padding: 12px 2em;
+}

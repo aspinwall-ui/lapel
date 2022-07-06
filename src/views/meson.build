@@ -4,6 +4,7 @@ moduledir = join_paths(pkgdatadir, 'lapel')
 lapel_view_sources = [
   '__init__.py',
   'assistant.py',
+  'pair.py',
   'preferences.py',
   'skills.py',
 ]

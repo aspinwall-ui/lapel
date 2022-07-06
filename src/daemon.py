@@ -2,6 +2,7 @@
 """
 Contains code for the message bus daemon.
 """
+from mycroft.api import DeviceApi, check_remote_pairing
 from mycroft.util.signal import create_signal
 from mycroft_bus_client import MessageBusClient, Message
 from gi.repository import Gio
@@ -24,12 +25,19 @@ class MessageBusDaemon:
 		"""Sets up the MessageBus handler."""
 		self.client = MessageBusClient(host=config['websocket-address'], port=config['websocket-port'])
 		self.client.run_in_thread()
+		self.api = DeviceApi()
 
 		self.messages = Gio.ListStore(item_type=LapelMessage)
 		self.skills = Gio.ListStore(item_type=LapelSkill)
 
 		self.client.on('speak', self.to_message)
 		self.client.on('recognizer_loop:utterance', self.to_message)
+
+	def is_paired(self, *args):
+		"""Returns True if the device is paired, False otherwise."""
+		if self.api.identity.uuid and check_remote_pairing(True):
+			return True
+		return False
 
 	def start_record(self):
 		"""Starts recording the message for voice recognition."""
