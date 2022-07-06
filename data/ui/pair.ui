@@ -4,7 +4,7 @@
 	<requires lib="gtk" version="4.0"/>
 	<template class="LapelPairingDialog" parent="AdwWindow">
 		<property name="title" translatable="yes">Pairing</property>
-		<property name="icon-name">microphone-sensitivity-medium-symbolic</property>
+		<property name="icon-name">audio-input-microphone-symbolic</property>
 		<property name="default-width">360</property>
 		<property name="default-height">600</property>
 		<property name="modal">true</property>

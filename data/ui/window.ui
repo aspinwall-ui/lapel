@@ -4,7 +4,7 @@
 	<requires lib="gtk" version="4.0"/>
 	<template class="LapelWindow" parent="AdwApplicationWindow">
 		<property name="title" translatable="yes">Assistant</property>
-		<property name="icon-name">microphone-sensitivity-medium-symbolic</property>
+		<property name="icon-name">audio-input-microphone-symbolic</property>
 		<property name="width-request">290</property>
 		<property name="default-width">480</property>
 		<property name="default-height">800</property>
@@ -71,7 +71,7 @@
 									<object class="AdwViewStackPage" id="assistant_page">
 										<property name="name">assistant</property>
 										<property name="title" translatable="yes">Assistant</property>
-										<property name="icon-name">microphone-sensitivity-medium-symbolic</property>
+										<property name="icon-name">audio-input-microphone-symbolic</property>
 
 										<property name="child">
 											<object class="AssistantContent"/>
