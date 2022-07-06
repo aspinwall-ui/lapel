@@ -9,6 +9,7 @@ import threading, time
 from mycroft_bus_client import Message
 from mycroft.api import is_paired
 from mycroft.identity import IdentityManager
+import os
 
 from ..daemon import get_daemon
 
@@ -51,6 +52,14 @@ class LapelPairingDialog(Adw.Window):
 				self.on_pair()
 
 	def on_pair(self, *args):
-		is_paired()
+		# HACK: Mycroft's Pairing skill will not shut up until *it's* paired,
+		# completely neglecting any other messages about successful pairing.
+		# This takes the more nuclear option of just straight up restarting all
+		# running skills, which should hopefully shut it up.
+		try:
+			os.system('mycroft-start skills restart')
+		except:
+			pass
+
 		self.paired = True
 		self.close()
