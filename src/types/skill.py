@@ -3,7 +3,7 @@
 Contains code for handling skills.
 """
 from mycroft.configuration import Configuration
-from gi.repository import GLib, Gtk, GObject
+from gi.repository import Gio, GLib, Gtk, GObject
 import pathlib
 import os.path
 import re
@@ -219,11 +219,8 @@ class SkillView(Gtk.Box):
 				# TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
 				self.examples_label.set_label('<i>' + _('No examples found.') + '</i>') # noqa: F821
 
-			if skill.data['icon'] and skill._icon_path:
-				self.icon_image.set_from_file(skill._icon_path)
-				skill.connect('notify::icon-path', self.update_icon)
-			else:
-				self.icon_image.set_from_icon_name('dialog-question-symbolic')
+			skill.connect('notify::icon-path', self.update_icon)
+			self.update_icon()
 		else:
 			self.title_label.set_label(skill.id)
 			self.examples_label.set_use_markup(True)
@@ -231,7 +228,11 @@ class SkillView(Gtk.Box):
 			self.examples_label.set_label('<i>' + _("Skill data not found.") + '</i>') # noqa: F821
 
 	def update_icon(self, *args):
-		if self.skill.data['icon'] and skill._icon_path:
-			self.icon_image.set_from_path(self.skill._icon_path)
+		if self.skill.data['icon'] and self.skill._icon_path:
+			# Load as IconPaintable for better resolution
+			icon_paintable = Gtk.IconPaintable.new_for_file(
+				Gio.File.new_for_path(self.skill._icon_path), 32, 1
+			)
+			self.icon_image.set_from_paintable(icon_paintable)
 		else:
 			self.icon_image.set_from_icon_name('dialog-question-symbolic')
