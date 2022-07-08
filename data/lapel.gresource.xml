@@ -2,6 +2,7 @@
 <gresources>
 	<gresource prefix="/org/dithernet/lapel">
 		<file>style.css</file>
+		<file>style-dark.css</file>
 		<file>ui/about.ui</file>
 		<file>ui/assistant.ui</file>
 		<file>ui/messageview.ui</file>

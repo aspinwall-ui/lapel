@@ -1,0 +1,4 @@
+/* WORKAROUND: The skill icon SVGs are black by default, and there doesn't seem to be an easy way to recolor them on the fly. So, we apply an invert filter instead. */
+.skill-icon {
+  filter: invert(100%);
+}
