@@ -26,6 +26,7 @@ Before you can use the `./run` script, you will need to install Meson.
 - PyGObject
 - GTK4
 - libadwaita
+- requests
 - [mycroft-core](https://github.com/MycroftAI/mycroft-core)
 - [mycroft_bus_client](https://github.com/MycroftAI/mycroft-messagebus-client)
 

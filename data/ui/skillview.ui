@@ -15,12 +15,30 @@
 		</style>
 
 		<child>
-			<object class="GtkLabel" id="title_label">
-				<property name="halign">start</property>
-				<property name="wrap">true</property>
-				<style>
-					<class name="title-4"/>
-				</style>
+			<object class="GtkBox" id="title_box">
+				<property name="hexpand">true</property>
+				<property name="spacing">12</property>
+
+				<child>
+					<object class="GtkLabel" id="title_label">
+						<property name="halign">start</property>
+						<property name="hexpand">true</property>
+						<property name="wrap">true</property>
+						<style>
+							<class name="title-4"/>
+						</style>
+					</object>
+				</child>
+
+				<child>
+					<object class="GtkImage" id="icon_image">
+						<property name="icon-size">large</property>
+						<property name="halign">end</property>
+						<style>
+							<class name="skill-icon"/>
+						</style>
+					</object>
+				</child>
 			</object>
 		</child>
 

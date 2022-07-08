@@ -3,11 +3,21 @@
 Contains code for handling skills.
 """
 from mycroft.configuration import Configuration
-from gi.repository import Gtk, GObject
+from gi.repository import GLib, Gtk, GObject
+import pathlib
 import os.path
 import re
+import requests
 import threading
+import time
 import xdg
+
+# Set up icon cache directory
+
+ICON_CACHE = os.path.join(GLib.get_user_cache_dir(), 'lapel', 'icons')
+
+if not os.path.exists(ICON_CACHE):
+	pathlib.Path(ICON_CACHE).mkdir(parents=True, exist_ok=True)
 
 mycroft_config = None
 mycroft_config_set = False
@@ -55,7 +65,7 @@ def skill_id_to_path(skill_id):
 	if os.path.isdir(filename):
 		return filename
 
-	return None  # Skill cannot be resolved
+	return None	 # Skill cannot be resolved
 
 class LapelSkill(GObject.Object):
 	"""
@@ -63,6 +73,9 @@ class LapelSkill(GObject.Object):
 	the 'skillmanager.list' message.
 	"""
 	__gtype_name__ = 'LapelSkill'
+
+	has_icon = False
+	_icon_path = None
 
 	def __init__(self, skill_id, data=None):
 		"""Initializes a LapelSkill object."""
@@ -127,6 +140,21 @@ class LapelSkill(GObject.Object):
 						self.data['category'] = None
 
 					# TODO: Get tags
+
+				icon_path = os.path.join(ICON_CACHE, self.skill_id + '.svg')
+				if 'icon' in self.data and self.data['icon']:
+					# Download the icon so that we can display it
+					if not os.path.exists(icon_path) or time.time() - os.path.getmtime(icon_path) > 2678400:
+						icon_data = requests.get(self.data['icon'], stream=True)
+						if icon_data.status_code == 200:
+							with open(icon_path, 'w+b') as icon_file:
+								for chunk in icon_data:
+									icon_file.write(chunk)
+								icon_file.flush()
+					self._icon_path = icon_path
+				elif os.path.exists(icon_path):
+					self._icon_path = icon_path
+				self.notify('icon-path')
 		else:
 			self.data = None
 
@@ -145,6 +173,11 @@ class LapelSkill(GObject.Object):
 		"""Whether the skill is active or not."""
 		return self.active
 
+	@GObject.Property(flags=GObject.ParamFlags.READABLE)
+	def icon_path(self):
+		"""The path to the skill's icon."""
+		return self._icon_path
+
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/skillview.ui')
 class SkillView(Gtk.Box):
 	"""
@@ -154,6 +187,7 @@ class SkillView(Gtk.Box):
 	__gtype_name__ = 'SkillView'
 
 	title_label = Gtk.Template.Child()
+	icon_image = Gtk.Template.Child()
 	description_label = Gtk.Template.Child()
 	examples_label = Gtk.Template.Child()
 
@@ -184,8 +218,20 @@ class SkillView(Gtk.Box):
 				self.examples_label.set_use_markup(True)
 				# TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
 				self.examples_label.set_label('<i>' + _('No examples found.') + '</i>') # noqa: F821
+
+			if skill.data['icon'] and skill._icon_path:
+				self.icon_image.set_from_file(skill._icon_path)
+				skill.connect('notify::icon-path', self.update_icon)
+			else:
+				self.icon_image.set_from_icon_name('dialog-question-symbolic')
 		else:
 			self.title_label.set_label(skill.id)
 			self.examples_label.set_use_markup(True)
 			# TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
 			self.examples_label.set_label('<i>' + _("Skill data not found.") + '</i>') # noqa: F821
+
+	def update_icon(self, *args):
+		if self.skill.data['icon'] and skill._icon_path:
+			self.icon_image.set_from_path(self.skill._icon_path)
+		else:
+			self.icon_image.set_from_icon_name('dialog-question-symbolic')
