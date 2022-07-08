@@ -3,6 +3,7 @@ data/org.dithernet.lapel.appdata.xml.in
 data/org.dithernet.lapel.gschema.xml
 data/ui/about.ui
 data/ui/assistant.ui
+data/ui/pair.ui
 data/ui/preferences.ui
 data/ui/skillview.ui
 data/ui/speechview.ui

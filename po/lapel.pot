@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-19 16:18+0200\n"
+"POT-Creation-Date: 2022-07-08 16:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,6 +46,26 @@ msgstr ""
 #. TRANSLATORS: You can also translate "contributors" as "programmers" or "developers".
 #: data/ui/about.ui:31
 msgid "Copyright © 2022 Aspinwall contributors"
+msgstr ""
+
+#: data/ui/pair.ui:6
+msgid "Pairing"
+msgstr ""
+
+#: data/ui/pair.ui:44
+msgid "Your Pairing Code:"
+msgstr ""
+
+#: data/ui/pair.ui:72
+msgid ""
+"Go to <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</"
+"a> to pair your device. When asked, input the code displayed above."
+msgstr ""
+
+#: data/ui/pair.ui:85
+msgid ""
+"If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
+"ai\">create one</a>."
 msgstr ""
 
 #: data/ui/preferences.ui:13

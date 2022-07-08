@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-19 16:18+0200\n"
+"POT-Creation-Date: 2022-07-08 16:04+0200\n"
 "PO-Revision-Date: 2022-04-03 10:26+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -48,6 +48,26 @@ msgstr "Vevsocket-port brukt ved tilkobling til Mycroft."
 #. TRANSLATORS: You can also translate "contributors" as "programmers" or "developers".
 #: data/ui/about.ui:31
 msgid "Copyright © 2022 Aspinwall contributors"
+msgstr ""
+
+#: data/ui/pair.ui:6
+msgid "Pairing"
+msgstr ""
+
+#: data/ui/pair.ui:44
+msgid "Your Pairing Code:"
+msgstr ""
+
+#: data/ui/pair.ui:72
+msgid ""
+"Go to <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</"
+"a> to pair your device. When asked, input the code displayed above."
+msgstr ""
+
+#: data/ui/pair.ui:85
+msgid ""
+"If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
+"ai\">create one</a>."
 msgstr ""
 
 #: data/ui/preferences.ui:13
