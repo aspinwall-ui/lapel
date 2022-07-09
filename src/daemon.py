@@ -32,9 +32,12 @@ class GUIHandler:
 		self.client = self.daemon.client
 		self.gui_id = "lapel_" + str(uuid4())
 
-		self.client.emit(Message('mycroft.gui.connected', {"gui_id": self.gui_id}))
 		self.client.on('gui.status.request', self.on_gui_request)
 		self.client.on('mycroft.gui.port', self.gui_port)
+		threading.Thread(target=self.gui_connect_func, daemon=True).start()
+
+	def gui_connect_func(self):
+		self.client.emit(Message('mycroft.gui.connected', {"gui_id": self.gui_id}))
 
 	def on_gui_request(self, message):
 		self.client.emit(message.reply("gui.status.request.response", {"connected": True}))
@@ -72,6 +75,7 @@ class MessageBusDaemon:
 		"""Sets up the MessageBus handler."""
 		self.client = MessageBusClient(host=config['websocket-address'], port=config['websocket-port'])
 		self.client.run_in_thread()
+
 		self.api = DeviceApi()
 		self.gui = GUIHandler(self)
 
