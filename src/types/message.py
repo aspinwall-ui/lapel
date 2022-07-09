@@ -5,7 +5,7 @@ Code for storing information about messages.
 from gi.repository import Gtk, GObject
 import time
 
-from ..wrappers import dialog_wrapper_for
+from ..wrappers import dialog_wrapper_for, gui_wrapper_for
 
 class LapelMessage(GObject.Object):
 	"""
@@ -17,6 +17,13 @@ class LapelMessage(GObject.Object):
 		"""Initializes a LapelMessage object."""
 		super().__init__()
 		self.message = message
+		self._gui_values = {}
+
+	def set_gui_values(self, value_dict):
+		"""Sets GUI values from the dict."""
+		for key, value in value_dict.items():
+			self._gui_values[key] = value
+		self.notify('gui-values')
 
 	def to_mycroft_message(self):
 		"""Returns the Mycroft message stored by the LapelMessage object."""
@@ -36,6 +43,11 @@ class LapelMessage(GObject.Object):
 	def context(self):
 		"""Message context."""
 		return self.message.context
+
+	@GObject.Property(flags=GObject.ParamFlags.READABLE)
+	def gui_values(self):
+		"""Message's GUI values."""
+		return self._gui_values
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/messageview.ui')
 class MessageView(Gtk.ListBoxRow):
@@ -81,12 +93,18 @@ class MessageView(Gtk.ListBoxRow):
 			self.is_received()
 			self.utterance_label.set_label(message.data['utterance'])
 
+		self.message.connect('notify::gui-values', self.setup_gui_wrapper)
+		self.setup_gui_wrapper()
+
 		if message.data:
 			if 'meta' in message.data.keys() and 'skill' in message.data['meta'].keys():
 				skill = message.data['meta']['skill']
 				if skill == 'UnknownSkill':
 					self.utterance_label.add_css_class('error')
-				self.set_wrapper(dialog_wrapper_for(message))
+
+				wrapper = dialog_wrapper_for(message)
+				if wrapper:
+					self.set_wrapper(wrapper)
 
 	def is_sent(self):
 		"""
@@ -121,3 +139,9 @@ class MessageView(Gtk.ListBoxRow):
 
 		self.dialog_wrapper.set_visible(True)
 		self.dialog_wrapper.set_child(wrapper)
+		print(self.dialog_wrapper.get_child())
+
+	def setup_gui_wrapper(self, *args):
+		"""Sets the dialog wrapper from GUI values."""
+		wrapper = gui_wrapper_for(self.message)
+		self.set_wrapper(wrapper)
