@@ -2,7 +2,7 @@
 """
 Code for the assistant view.
 """
-from gi.repository import Gtk
+from gi.repository import GObject, Gtk
 import sys
 
 from ..daemon import get_daemon

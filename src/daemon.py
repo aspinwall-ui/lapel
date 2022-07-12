@@ -5,7 +5,9 @@ Contains code for the message bus daemon.
 from mycroft.api import DeviceApi, check_remote_pairing
 from mycroft.util.signal import create_signal
 from mycroft_bus_client import MessageBusClient, Message
-from gi.repository import Gio
+from gi.repository import Gio, GObject
+import socket
+import time
 import threading
 from uuid import uuid4
 import websocket
@@ -63,7 +65,7 @@ class GUIHandler:
 	def on_gui_close(self, socket):
 		self.ws.close()
 
-class MessageBusDaemon:
+class MessageBusDaemon(GObject.Object):
 	"""
 	Convenience class that sets up the MessageBus handler and its
 	callbacks.
@@ -71,20 +73,64 @@ class MessageBusDaemon:
 	error_handler_func = None
 	_gui_cache = None
 
+	_available = True
+
 	def __init__(self):
 		"""Sets up the MessageBus handler."""
-		self.client = MessageBusClient(host=config['websocket-address'], port=config['websocket-port'])
+		super().__init__()
+		self._connection_data = (config['websocket-address'], config['websocket-port'])
+
+		self.messages = Gio.ListStore(item_type=LapelMessage)
+		self.skills = Gio.ListStore(item_type=LapelSkill)
+		# Start availability checker thread
+		threading.Thread(target=self._availability_check, daemon=True).start()
+
+		self.client = MessageBusClient(host=self._connection_data[0], port=self._connection_data[1])
 		self.client.run_in_thread()
 
 		self.api = DeviceApi()
 		self.gui = GUIHandler(self)
 
-		self.messages = Gio.ListStore(item_type=LapelMessage)
-		self.skills = Gio.ListStore(item_type=LapelSkill)
-
 		self.client.on('speak', self.to_message)
 		self.client.on('recognizer_loop:utterance', self.to_message)
 		self.client.on('gui.value.set', self.set_gui_values)
+		self.client.on('ready', self.on_ready)
+		self.client.on('error', self.check_available)
+
+	def check_available(self, *args):
+		"""
+		Checks if Mycroft is available and sets the 'available' property
+		accordingly.
+		"""
+		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		try:
+			result = sock.connect_ex(self._connection_data)
+			if result == 0:
+				if self._available != True:
+					self._available = True
+					self.notify('available')
+			else:
+				if self._available != False:
+					self._available = False
+					self.notify('available')
+			sock.close()
+		except (socket.gaierror, socket.error):
+			if self._available != False:
+				self._available = False
+				self.notify('available')
+			sock.close()
+
+
+	def _availability_check(self):
+		while True:
+			self.check_available()
+
+			time.sleep(5)
+
+	@GObject.Property(type=bool, default=True, flags=GObject.ParamFlags.READABLE)
+	def available(self):
+		"""Whether Mycroft is available or not."""
+		return self._available
 
 	def is_paired(self, *args):
 		"""Returns True if the device is paired, False otherwise."""
@@ -175,6 +221,9 @@ class MessageBusDaemon:
 			if skill.id == skill_id:
 				self.skills.remove(skill)
 				return
+
+	def on_ready(self, *args):
+		self.refresh_skills()
 
 def get_daemon():
 	"""Returns the currently running MessageBus handler."""

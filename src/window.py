@@ -30,9 +30,26 @@ class LapelWindow(Adw.ApplicationWindow):
 		if not self.daemon.is_paired():
 			LapelPairingDialog(parent=self).present()
 
-		self.daemon.client.on('error', self.handle_error)
-		self.daemon.client.on('mycroft.ready', self.ready)
-		self.no_connection.hide()
+		self.daemon.bind_property(
+			'available', self.no_connection, 'reveal-child',
+			GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.INVERT_BOOLEAN
+		)
+		self.daemon.bind_property(
+			'available', self.no_connection, 'receives-default',
+			GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.INVERT_BOOLEAN
+		)
+		self.daemon.bind_property(
+			'available', self.no_connection, 'can-target',
+			GObject.BindingFlags.SYNC_CREATE | GObject.BindingFlags.INVERT_BOOLEAN
+		)
+		self.daemon.bind_property(
+			'available', self.view_switcher, 'sensitive',
+			GObject.BindingFlags.SYNC_CREATE
+		)
+		self.daemon.bind_property(
+			'available', self.content_stack, 'sensitive',
+			GObject.BindingFlags.SYNC_CREATE
+		)
 
 		self.daemon.refresh_skills()
 
@@ -59,18 +76,7 @@ class LapelWindow(Adw.ApplicationWindow):
 	def handle_error(self, error):
 		"""Handles errors."""
 		print(error)
-		self.no_connection.show()
-		self.no_connection.set_reveal_child(True)
 		self.assistant_page.get_child().content_flap.set_reveal_flap(False)
-		self.view_switcher.set_sensitive(False)
-
-	def ready(self, *args):
-		"""Recovers after an error."""
-		self.no_connection.set_receives_default(False)
-		self.no_connection.set_reveal_child(False)
-		self.no_connection.hide()
-		self.view_switcher.set_sensitive(True)
-		self.daemon.refresh_skills()
 
 @Gtk.Template(resource_path='/org/dithernet/lapel/ui/about.ui')
 class AboutDialog(Gtk.AboutDialog):
