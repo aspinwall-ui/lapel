@@ -21,15 +21,22 @@ class Application(Adw.Application):
 			flags=Gio.ApplicationFlags.FLAGS_NONE,
 			resource_base_path='/org/dithernet/lapel/'
 		)
-		start_daemon()
 
 	def do_activate(self):
+		if not self.get_is_remote():
+			if not get_daemon():
+				start_daemon()
+			self.daemon = get_daemon()
+
+			# Keep running in the background
+			self.hold()
+
 		win = self.props.active_window
 		if not win:
 			win = LapelWindow(application=self)
 		self.create_action('about', self.on_about_action)
 		self.create_action('preferences', self.on_preferences_action)
-		self.daemon = win.daemon
+		self.create_action('quit', self.on_quit_action)
 		win.present()
 
 	def on_about_action(self, widget, _):
@@ -39,6 +46,11 @@ class Application(Adw.Application):
 	def on_preferences_action(self, widget, _):
 		preferences = LapelPreferences()
 		preferences.present()
+
+	def on_quit_action(self, widget, _):
+		for window in self.get_windows():
+			window.close()
+		self.release()
 
 	def create_action(self, name, callback):
 		"""Add an action and connect it to a callback."""
