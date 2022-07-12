@@ -21,6 +21,7 @@ lapel_sources = [
   '__init__.py',
   'config.py',
   'daemon.py',
+  'main.py',
   'window.py'
 ]
 

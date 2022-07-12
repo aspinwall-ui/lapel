@@ -48,5 +48,5 @@ if __name__ == '__main__':
 	resource = Gio.Resource.load(os.path.join(pkgdatadir, 'lapel.gresource'))
 	resource._register()
 
-	from lapel import window
-	sys.exit(window.main(VERSION))
+	from lapel import main
+	sys.exit(main.main(VERSION))
