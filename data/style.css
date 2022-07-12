@@ -63,3 +63,9 @@
 	font-weight: bold;
 	padding: 12px 2em;
 }
+
+.assistant-popup {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}

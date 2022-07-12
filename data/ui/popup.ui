@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+	<requires lib="adw" version="1.0"/>
+	<requires lib="gtk" version="4.0"/>
+	<template class="AssistantPopup" parent="AdwWindow">
+		<property name="title" translatable="yes">Speak to the Assistant</property>
+		<property name="decorated">false</property>
+
+		<style>
+			<class name="assistant-popup"/>
+		</style>
+
+		<child>
+			<object class="AdwFlap" id="flap">
+				<property name="vexpand">true</property>
+				<property name="orientation">vertical</property>
+				<property name="fold-policy">always</property>
+				<property name="flap-position">end</property>
+				<property name="reveal-flap">false</property>
+
+				<child>
+					<object class="GtkBox">
+						<property name="hexpand">true</property>
+						<property name="vexpand">true</property>
+					</object>
+				</child>
+
+				<child type="flap">
+					<object class="SpeechView"/>
+				</child>
+			</object>
+		</child>
+	</template>
+</interface>

@@ -12,6 +12,7 @@ from gi.repository import Adw, Gio
 from .daemon import start_daemon, get_daemon
 
 from .views.preferences import LapelPreferences
+from .views.popup import AssistantPopup
 from .window import LapelWindow, AboutDialog
 
 class Application(Adw.Application):
@@ -27,6 +28,13 @@ class Application(Adw.Application):
 			if not get_daemon():
 				start_daemon()
 			self.daemon = get_daemon()
+
+			self.assistant_popup = AssistantPopup(self)
+
+			# HACK: without this, showing the window results in:
+			# gdk_gl_context_make_current() failed
+			self.assistant_popup.present()
+			self.assistant_popup.hide()
 
 			# Keep running in the background
 			self.hold()
