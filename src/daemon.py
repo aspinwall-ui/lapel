@@ -106,7 +106,6 @@ class MessageBusDaemon:
 		Turns the provided Message to a LapelMessage and adds it to the daemon's
 		message list.
 		"""
-		print(message, message.msg_type, message.data, message.context)
 		self.messages.append(LapelMessage(message))
 		if self._gui_cache:
 			self.set_gui_values(self._gui_cache)

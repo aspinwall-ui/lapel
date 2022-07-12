@@ -139,7 +139,6 @@ class MessageView(Gtk.ListBoxRow):
 
 		self.dialog_wrapper.set_visible(True)
 		self.dialog_wrapper.set_child(wrapper)
-		print(self.dialog_wrapper.get_child())
 
 	def setup_gui_wrapper(self, *args):
 		"""Sets the dialog wrapper from GUI values."""
