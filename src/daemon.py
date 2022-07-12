@@ -97,6 +97,7 @@ class MessageBusDaemon(GObject.Object):
 		"""Sets up the MessageBus handler."""
 		super().__init__()
 		self._connection_data = (config['websocket-address'], config['websocket-port'])
+		self.api = DeviceApi()
 
 		self.messages = Gio.ListStore(item_type=LapelMessage)
 		self.skills = Gio.ListStore(item_type=LapelSkill)
@@ -119,7 +120,6 @@ class MessageBusDaemon(GObject.Object):
 		if not self._available:
 			return False
 
-		self.api = DeviceApi()
 		self.gui = GUIHandler(self)
 
 		self.client.on('speak', self.to_message)
@@ -192,6 +192,16 @@ class MessageBusDaemon(GObject.Object):
 		Turns the provided Message to a LapelMessage and adds it to the daemon's
 		message list.
 		"""
+		# HACK: drop messages from the pairing skill. We do pairing ourselves,
+		# this only gets in the way
+		try:
+			if message.data['meta']['skill'] == 'PairingSkill' and \
+					message.data['meta']['dialog'] != 'already.paired':
+				self.client.emit(Message('mycroft.stop'))
+				return
+		except KeyError:
+			pass
+
 		self.messages.append(LapelMessage(message))
 		if self._gui_cache:
 			self.set_gui_values(self._gui_cache)
