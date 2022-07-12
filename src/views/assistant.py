@@ -38,8 +38,8 @@ class AssistantContent(Gtk.Box):
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
 		self.daemon = get_daemon()
-		self.daemon.client.on('recognizer_loop:wakeword', self.start_record)
-		self.daemon.client.on('recognizer_loop:record_end', self.speech_timeout)
+		self.daemon.on('recognizer_loop:wakeword', self.start_record)
+		self.daemon.on('recognizer_loop:record_end', self.speech_timeout)
 		self.store = self.daemon.messages
 
 		self.message_list.bind_model(self.store, self.create_message_view, None)

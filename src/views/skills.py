@@ -23,13 +23,13 @@ class SkillsContent(Gtk.Box):
 		"""Initializes a SkillsContent object."""
 		self.daemon = get_daemon()
 
-		self.daemon.client.on('mycroft.skills.list', self.set_skills)
+		self.daemon.on('mycroft.skills.list', self.set_skills)
 		# UPSTREAM BUG: These are in the docs, but are never emitted, as MSM
 		# has no connection to the bus.
-		self.daemon.client.on('msm.install.succeeded', self.update_skills)
-		self.daemon.client.on('msm.remove.succeeded', self.update_skills)
+		self.daemon.on('msm.install.succeeded', self.update_skills)
+		self.daemon.on('msm.remove.succeeded', self.update_skills)
 
-		self.daemon.client.on('mycroft.skills.loaded', self.update_skills)
+		self.daemon.on('mycroft.skills.loaded', self.update_skills)
 
 		# Set up search bar
 		self.search_bar.set_key_capture_widget(self)

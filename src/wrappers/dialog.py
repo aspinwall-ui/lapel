@@ -26,8 +26,8 @@ class SuggestionWrapper(DialogWrapper):
 		# Imported here to avoid dependency loop
 		from ..daemon import get_daemon
 		self.daemon = get_daemon()
-		self.daemon.client.on('speak', self.hide_buttons)
-		self.daemon.client.on('recognizer_loop:utterance', self.hide_buttons)
+		self.daemon.on('speak', self.hide_buttons)
+		self.daemon.on('recognizer_loop:utterance', self.hide_buttons)
 
 		self.button_revealer = Gtk.Revealer(reveal_child=True, hexpand=True)
 

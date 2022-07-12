@@ -4,7 +4,8 @@ Contains code for the message bus daemon.
 """
 from mycroft.api import DeviceApi, check_remote_pairing
 from mycroft.util.signal import create_signal
-from mycroft_bus_client import MessageBusClient, Message
+from mycroft_bus_client import Message
+from mycroft_bus_client import MessageBusClient as OriginalMessageBusClient
 from gi.repository import Gio, GObject
 import socket
 import time
@@ -17,6 +18,19 @@ from .types.skill import LapelSkill
 from .config import config
 
 daemon = None
+
+class MessageBusClient(OriginalMessageBusClient):
+	# Subclass of MessageBusClient that replaces the on_error function
+	def on_error(self, *args):
+		if len(args) == 1:
+			error = args[0]
+		else:
+			error = args[1]
+		self.emitter.emit('error', error)
+		try:
+			self.client.close()
+		except Exception as e:
+			print(repr(e))
 
 class GUIHandler:
 	"""
@@ -65,6 +79,9 @@ class GUIHandler:
 	def on_gui_close(self, socket):
 		self.ws.close()
 
+	def __del__(self):
+		self.ws.close()
+
 class MessageBusDaemon(GObject.Object):
 	"""
 	Convenience class that sets up the MessageBus handler and its
@@ -74,6 +91,7 @@ class MessageBusDaemon(GObject.Object):
 	_gui_cache = None
 
 	_available = True
+	_events = []
 
 	def __init__(self):
 		"""Sets up the MessageBus handler."""
@@ -82,11 +100,24 @@ class MessageBusDaemon(GObject.Object):
 
 		self.messages = Gio.ListStore(item_type=LapelMessage)
 		self.skills = Gio.ListStore(item_type=LapelSkill)
+		# Start client
+		threading.Thread(target=self.setup_client, daemon=True).start()
 		# Start availability checker thread
 		threading.Thread(target=self._availability_check, daemon=True).start()
+		self.connect('notify::available', self.restart_client)
 
+	def restart_client(self, *args):
+		"""Restarts client after the connection is lost"""
+		if self._available:
+			threading.Thread(target=self.setup_client, daemon=True).start()
+
+	def setup_client(self, *args):
 		self.client = MessageBusClient(host=self._connection_data[0], port=self._connection_data[1])
 		self.client.run_in_thread()
+
+		self.check_available()
+		if not self._available:
+			return False
 
 		self.api = DeviceApi()
 		self.gui = GUIHandler(self)
@@ -96,6 +127,14 @@ class MessageBusDaemon(GObject.Object):
 		self.client.on('gui.value.set', self.set_gui_values)
 		self.client.on('ready', self.on_ready)
 		self.client.on('error', self.check_available)
+
+		for message, handler in self._events:
+			self.client.on(message, handler)
+
+	def on(self, message, handler):
+		"""Wrapper around client.on()."""
+		self._events.append((message, handler))
+		self.client.on(message, handler)
 
 	def check_available(self, *args):
 		"""
@@ -119,7 +158,6 @@ class MessageBusDaemon(GObject.Object):
 				self._available = False
 				self.notify('available')
 			sock.close()
-
 
 	def _availability_check(self):
 		while True:
@@ -146,6 +184,8 @@ class MessageBusDaemon(GObject.Object):
 		"""Stops recording the current voice recognition message."""
 		self.client.emit(Message('mycroft.stop'))
 		create_signal('buttonPress')
+
+	# Message handling
 
 	def to_message(self, message):
 		"""

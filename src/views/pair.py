@@ -35,8 +35,8 @@ class LapelPairingDialog(Adw.Window):
 		await_thread = threading.Thread(target=self.await_paired, daemon=True)
 		await_thread.start()
 
-		self.daemon.client.on('mycroft.paired', self.on_pair)
-		self.daemon.client.on('mycroft.ready', self.on_pair)
+		self.daemon.on('mycroft.paired', self.on_pair)
+		self.daemon.on('mycroft.ready', self.on_pair)
 
 	def await_paired(self):
 		while not self.paired:
