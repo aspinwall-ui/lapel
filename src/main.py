@@ -78,6 +78,7 @@ class Application(Adw.Application):
 		for window in self.get_windows():
 			window.close()
 		self.release()
+		self.quit()
 
 	def create_action(self, name, callback):
 		"""Add an action and connect it to a callback."""
