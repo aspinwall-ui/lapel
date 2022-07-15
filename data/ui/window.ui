@@ -8,6 +8,7 @@
 		<property name="width-request">290</property>
 		<property name="default-width">480</property>
 		<property name="default-height">800</property>
+		<property name="hide-on-close">true</property>
 
 		<child>
 			<object class="GtkBox">
