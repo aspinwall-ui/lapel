@@ -65,7 +65,11 @@
 }
 
 .assistant-popup {
-	background: transparent;
+	background: rgba(255, 255, 255, 0.5);
 	border: none;
 	box-shadow: none;
+}
+
+.rounded {
+	border-radius: 6px;
 }

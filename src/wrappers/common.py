@@ -24,6 +24,8 @@ class ImageWrapper(Gtk.Box):
 		picture = Gtk.Picture.new_for_filename(path)
 		picture.set_can_shrink(True)
 		picture.set_size_request(-1, 200)
+		picture.set_overflow(Gtk.Overflow.HIDDEN)
+		picture.add_css_class('rounded')
 		if alt:
 			picture.set_alternative_text(alt)
 
@@ -39,6 +41,8 @@ class ImageWrapper(Gtk.Box):
 		picture = Gtk.Picture.new_for_pixbuf(pixbuf)
 		picture.set_can_shrink(True)
 		picture.set_size_request(-1, 200)
+		picture.set_overflow(Gtk.Overflow.HIDDEN)
+		picture.add_css_class('rounded')
 		if alt:
 			picture.set_alternative_text(alt)
 
