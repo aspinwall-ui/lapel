@@ -18,13 +18,22 @@ from .window import LapelWindow, AboutDialog
 class Application(Adw.Application):
 	win = None
 	assistant_popup = None
+	daemonize = False
 
 	def __init__(self):
 		super().__init__(
 			application_id='org.dithernet.lapel',
-			flags=Gio.ApplicationFlags.FLAGS_NONE,
-			resource_base_path='/org/dithernet/lapel/'
+			resource_base_path='/org/dithernet/lapel/',
+			flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE
 		)
+		self.connect('command-line', self.on_commandline)
+
+	def on_commandline(self, app, cmdline, *args):
+		args = cmdline.get_arguments()
+		if '-d' in args or '--daemon' in args:
+			self.daemonize = True
+		self.activate()
+		return 0
 
 	def do_activate(self):
 		# FIXME: get_is_remote doesn't work sometimes? checking for self.win
@@ -60,7 +69,10 @@ class Application(Adw.Application):
 		self.create_action('about', self.on_about_action)
 		self.create_action('preferences', self.on_preferences_action)
 		self.create_action('quit', self.on_quit_action)
-		self.win.present()
+		if self.daemonize:
+			self.daemonize = False
+		else:
+			self.win.present()
 
 	def close_window(self, *args):
 		self.win = None

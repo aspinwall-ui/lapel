@@ -35,6 +35,7 @@ class AssistantPopup(Adw.Window):
 			self.set_visible(True)
 			self.present()
 			self.fullscreen()
+			self.set_opacity(0.5)
 			self.flap.set_reveal_flap(True)
 
 	def _hide(self, *args):
