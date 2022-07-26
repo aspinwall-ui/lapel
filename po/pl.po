@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-08 16:04+0200\n"
-"PO-Revision-Date: 2022-04-20 16:10+0000\n"
+"PO-Revision-Date: 2022-07-26 11:07+0000\n"
 "Last-Translator: knuxify <knuxfanwin8.mail@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/aspinwall-ui/"
 "lapel/pl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
 #: data/ui/window.ui:73
@@ -48,23 +48,28 @@ msgstr "Prawa autorskie © 2022 Deweloperzy Aspinwall"
 
 #: data/ui/pair.ui:6
 msgid "Pairing"
-msgstr ""
+msgstr "Sparuj"
 
 #: data/ui/pair.ui:44
 msgid "Your Pairing Code:"
-msgstr ""
+msgstr "Twój kod parowania:"
 
 #: data/ui/pair.ui:72
 msgid ""
 "Go to <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</"
 "a> to pair your device. When asked, input the code displayed above."
 msgstr ""
+"Wejdź na <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/"
+"pair</a> aby sparować swoje urządzenie. W odpowiednie pole wpisz kod "
+"wyświetlony powyżej."
 
 #: data/ui/pair.ui:85
 msgid ""
 "If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
 "ai\">create one</a>."
 msgstr ""
+"Jeśli nie masz jeszcze konta Mycroft, <a href=\"https://account.mycroft.ai\""
+">utwórz je</a>."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
