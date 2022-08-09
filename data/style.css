@@ -50,6 +50,10 @@
 	padding: 12px;
 }
 
+.skills-list {
+	background-color: @window_bg_color;
+}
+
 .skills-list row {
 	background-color: transparent;
 }
