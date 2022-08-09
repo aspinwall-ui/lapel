@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Assistant
-Exec=lapel --standalone
-Icon=microphone-sensitivity-high
+Exec=lapel
+Icon=audio-input-microphone
 Terminal=false
 Type=Application
-Categories=GTK;
+Categories=GTK;GNOME;Utility;Network;ArtificialIntelligence
 StartupNotify=true
