@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
+	<name>Assistant</name>
+	<summary>Voice assistant GUI based on Mycroft</summary>
 	<id>org.dithernet.lapel.desktop</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>MIT</project_license>
+	<content_rating type="oars-1.1"/>
+	<releases>
+		<release version="0.1.0" date="2022-08-09"/>
+	</releases>
+	<url type="homepage">https://github.com/aspinwall-ui/lapel</url>
 	<description>
 	  <p>Voice assistant GUI based on Mycroft</p>
 	</description>
+	<screenshots>
+		<screenshot type="default">https://raw.githubusercontent.com/aspinwall-ui/lapel/develop/docs/screenshot-scaled.png</screenshot>
+	</screenshots>
 </component>
