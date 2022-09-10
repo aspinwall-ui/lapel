@@ -5,6 +5,7 @@ data/ui/about.ui
 data/ui/assistant.ui
 data/ui/pair.ui
 data/ui/preferences.ui
+data/ui/skills.ui
 data/ui/skillview.ui
 data/ui/speechview.ui
 data/ui/window.ui

@@ -44,8 +44,8 @@
 				<child type="overlay">
 					<object class="AdwStatusPage" id="no_results">
 						<property name="icon-name">system-search-symbolic</property>
-						<property name="title">No Results Found</property>
-						<property name="description">Try a different search query</property>
+						<property name="title" translatable="yes">No Results Found</property>
+						<property name="description" translatable="yes">Try a different search query</property>
 
 						<style>
 							<class name="background"/>
