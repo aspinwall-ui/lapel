@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-	<requires lib="gtk" version="4.0"/>
-	<template class="MessageView" parent="GtkListBoxRow">
-		<property name="hexpand">true</property>
-		<property name="valign">end</property>
+  <requires lib="gtk" version="4.0"/>
+  <template class="MessageView" parent="GtkListBoxRow">
+    <property name="hexpand">true</property>
+    <property name="valign">end</property>
 
-		<property name="margin-top">3</property>
-		<property name="margin-bottom">3</property>
-		<property name="margin-start">6</property>
-		<property name="margin-end">6</property>
+    <property name="margin-top">3</property>
+    <property name="margin-bottom">3</property>
+    <property name="margin-start">6</property>
+    <property name="margin-end">6</property>
 
-		<style>
-			<class name="messageview"/>
-		</style>
+    <style>
+      <class name="messageview"/>
+    </style>
 
-		<child>
-			<object class="GtkBox">
-				<property name="orientation">vertical</property>
-				<property name="spacing">5</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
 
-				<child>
-					<object class="GtkBox" id="utterance_box">
-						<property name="hexpand">False</property>
+        <child>
+          <object class="GtkBox" id="utterance_box">
+            <property name="hexpand">False</property>
 
-						<style>
-							<class name="messagebox"/>
-						</style>
+            <style>
+              <class name="messagebox"/>
+            </style>
 
-						<child>
-							<object class="GtkLabel" id="utterance_label">
-								<property name="wrap">true</property>
-								<property name="wrap-mode">word-char</property>
-								<property name="natural-wrap-mode">word</property>
-							</object>
-						</child>
-					</object>
-				</child>
+            <child>
+              <object class="GtkLabel" id="utterance_label">
+                <property name="wrap">true</property>
+                <property name="wrap-mode">word-char</property>
+                <property name="natural-wrap-mode">word</property>
+              </object>
+            </child>
+          </object>
+        </child>
 
-				<child>
-					<object class="AdwBin" id="dialog_wrapper">
-						<property name="visible">false</property>
-						<property name="hexpand">true</property>
+        <child>
+          <object class="AdwBin" id="dialog_wrapper">
+            <property name="visible">false</property>
+            <property name="hexpand">true</property>
 
-						<style>
-							<class name="dialog-wrapper"/>
-						</style>
-					</object>
-				</child>
+            <style>
+              <class name="dialog-wrapper"/>
+            </style>
+          </object>
+        </child>
 
-				<child>
-					<object class="GtkLabel" id="message_date">
-						<property name="valign">end</property>
-						<style>
-							<class name="message-date"/>
-							<class name="dim-label"/>
-						</style>
-					</object>
-				</child>
-			</object>
-		</child>
-	</template>
+        <child>
+          <object class="GtkLabel" id="message_date">
+            <property name="valign">end</property>
+            <style>
+              <class name="message-date"/>
+              <class name="dim-label"/>
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
 </interface>

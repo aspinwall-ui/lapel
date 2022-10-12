@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-	<requires lib="gtk" version="4.0"/>
-	<requires lib="libadwaita" version="1.0"/>
-	<template class="LapelPreferences" parent="AdwPreferencesWindow">
-		<child>
-			<object class="AdwPreferencesPage">
-				<property name="icon_name">preferences-window-layout-symbolic</property>
-				<property name="title">Assistant</property>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="LapelPreferences" parent="AdwPreferencesWindow">
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="icon_name">preferences-window-layout-symbolic</property>
+        <property name="title">Assistant</property>
 
-				<child>
-					<object class="AdwPreferencesGroup">
-						<property name="title" translatable="yes">Connection</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <property name="title" translatable="yes">Connection</property>
 
-						<child>
-							<object class="AdwActionRow">
-								<property name="title" translatable="yes">Websocket address</property>
-								<property name="subtitle" translatable="yes">Address and port to use when connecting to Mycroft's websocket. You will need to restart Assistant before the changes take effect.</property>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Websocket address</property>
+                <property name="subtitle" translatable="yes">Address and port to use when connecting to Mycroft's websocket. You will need to restart Assistant before the changes take effect.</property>
 
-								<child>
-									<object class="GtkBox">
-										<property name="valign">center</property>
-										<style>
-											<class name="linked"/>
-										</style>
+                <child>
+                  <object class="GtkBox">
+                    <property name="valign">center</property>
+                    <style>
+                      <class name="linked"/>
+                    </style>
 
-										<child>
-											<object class="GtkEntry" id="ws_address_entry">
-												<property name="placeholder-text">0.0.0.0</property>
-												<signal name="changed" handler="set_address"/>
-											</object>
-										</child>
+                    <child>
+                      <object class="GtkEntry" id="ws_address_entry">
+                        <property name="placeholder-text">0.0.0.0</property>
+                        <signal name="changed" handler="set_address"/>
+                      </object>
+                    </child>
 
-										<child>
-											<object class="GtkEntry" id="ws_port_entry">
-												<property name="input-purpose">digits</property>
-												<property name="max-length">5</property>
-												<property name="max-width-chars">5</property>
-												<property name="placeholder-text">8181</property>
-												<signal name="changed" handler="set_port"/>
-											</object>
-										</child>
-									</object>
-								</child>
-							</object>
-						</child>
-					</object>
-				</child>
-			</object>
-		</child>
-	</template>
+                    <child>
+                      <object class="GtkEntry" id="ws_port_entry">
+                        <property name="input-purpose">digits</property>
+                        <property name="max-length">5</property>
+                        <property name="max-width-chars">5</property>
+                        <property name="placeholder-text">8181</property>
+                        <signal name="changed" handler="set_port"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
 </interface>

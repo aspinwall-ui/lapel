@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-	<requires lib="gtk" version="4.0"/>
-	<template class="AboutDialog" parent="GtkAboutDialog">
-		<property name="program-name" translatable="Yes">Assistant</property>
-		<property name="logo-icon-name">audio-input-microphone</property>
-		<property name="license">MIT License
+  <requires lib="gtk" version="4.0"/>
+  <template class="AboutDialog" parent="GtkAboutDialog">
+    <property name="program-name" translatable="Yes">Assistant</property>
+    <property name="logo-icon-name">audio-input-microphone</property>
+    <property name="license">MIT License
 
 Copyright (c) 2022 Aspinwall contributors
 
@@ -25,13 +25,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.</property>
-		<!-- TRANSLATORS: This is the description, as seen in the about dialog. -->
-		<property name="comments" translatable="yes">Voice assistant GUI based on Mycroft</property>
-		<!-- TRANSLATORS: You can also translate "contributors" as "programmers" or "developers". -->
-		<property name="copyright" translatable="yes">Copyright © 2022 Aspinwall contributors</property>
+    <!-- TRANSLATORS: This is the description, as seen in the about dialog. -->
+    <property name="comments" translatable="yes">Voice assistant GUI based on Mycroft</property>
+    <!-- TRANSLATORS: You can also translate "contributors" as "programmers" or "developers". -->
+    <property name="copyright" translatable="yes">Copyright © 2022 Aspinwall contributors</property>
 
-		<style>
-			<class name="aspinwall-about"/>
-		</style>
-	</template>
+    <style>
+      <class name="aspinwall-about"/>
+    </style>
+  </template>
 </interface>
