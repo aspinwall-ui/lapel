@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-08 16:04+0200\n"
+"POT-Creation-Date: 2022-10-12 20:55+0200\n"
 "PO-Revision-Date: 2022-04-03 10:26+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -19,13 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.12-dev\n"
 
-#: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
-#: data/ui/window.ui:73
+#: data/org.dithernet.lapel.desktop.in:3
+#: data/org.dithernet.lapel.appdata.xml.in:3 data/ui/window.ui:6
+#: data/ui/window.ui:74
 msgid "Assistant"
 msgstr "Assistent"
 
 #. TRANSLATORS: This is the description, as seen in the about dialog.
-#: data/org.dithernet.lapel.appdata.xml.in:7 data/ui/about.ui:29
+#: data/org.dithernet.lapel.appdata.xml.in:4
+#: data/org.dithernet.lapel.appdata.xml.in:14 data/ui/about.ui:29
 msgid "Voice assistant GUI based on Mycroft"
 msgstr "Grensesnitt for stemmeassistent basert på Mycroft"
 
@@ -82,8 +84,17 @@ msgstr ""
 "Adresse og port å bruke ved tilkobling til Mycrofts vevsocket. Start "
 "Assistenten på ny for å ta i bruk nye endringer."
 
+#: data/ui/skills.ui:47
+#, fuzzy
+msgid "No Results Found"
+msgstr "Fant ingen eksempler."
+
+#: data/ui/skills.ui:48
+msgid "Try a different search query"
+msgstr ""
+
 #. TRANSLATORS: Used for skill usage examples
-#: data/ui/skillview.ui:38
+#: data/ui/skillview.ui:56
 msgid "Examples"
 msgstr "Eksempler"
 
@@ -91,52 +102,61 @@ msgstr "Eksempler"
 msgid "Speak to the Microphone"
 msgstr ""
 
-#: data/ui/window.ui:36
+#: data/ui/window.ui:37
 msgid "Search skills"
 msgstr "Søkeferdigheter"
 
-#: data/ui/window.ui:57
+#: data/ui/window.ui:58
 msgid "Could Not Connect"
 msgstr "Kunne ikke koble til"
 
-#: data/ui/window.ui:58
+#: data/ui/window.ui:59
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
 msgstr "Klarte ikke å koble til Mycroft-vevsocket. Sørg for at Mycroft kjører."
 
-#: data/ui/window.ui:85
+#: data/ui/window.ui:86
 msgid "Skills"
 msgstr "Ferdigheter"
 
-#: data/ui/window.ui:104
+#: data/ui/window.ui:105
 msgid "_Preferences"
 msgstr "_Innstillinger"
 
-#: data/ui/window.ui:108
+#: data/ui/window.ui:109
 msgid "_About Assistant"
 msgstr "_Om Assistent"
 
+#: data/ui/window.ui:113
+msgid "_Quit"
+msgstr ""
+
+#. TRANSLATORS: You can also translate this as "developers".
+#: src/main.py:90
+msgid "Aspinwall contributors"
+msgstr ""
+
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
-#: src/types/skill.py:174
+#: src/types/skill.py:208
 msgid "No description found."
 msgstr "Fant ingen beskrivelser."
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
-#: src/types/skill.py:186
+#: src/types/skill.py:220
 msgid "No examples found."
 msgstr "Fant ingen eksempler."
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
-#: src/types/skill.py:191
+#: src/types/skill.py:228
 msgid "Skill data not found."
 msgstr "Fant ingen ferdighetsdata."
 
 #. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
-#: src/wrappers/wrappers.py:74
+#: src/wrappers/dialog.py:74
 msgid "Confirm"
 msgstr ""
 
 #. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
-#: src/wrappers/wrappers.py:76
+#: src/wrappers/dialog.py:76
 msgid "Cancel"
 msgstr ""

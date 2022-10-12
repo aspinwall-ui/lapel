@@ -8,7 +8,7 @@ import gi
 gi.require_version('Adw', '1')
 gi.require_version('Gtk', '4.0')
 
-from gi.repository import Adw, Gio
+from gi.repository import Adw, Gtk, Gio
 from .daemon import start_daemon, get_daemon
 
 from .views.preferences import LapelPreferences
@@ -20,12 +20,13 @@ class Application(Adw.Application):
     assistant_popup = None
     daemonize = False
 
-    def __init__(self):
+    def __init__(self, version='dev'):
         super().__init__(
             application_id='org.dithernet.lapel',
             resource_base_path='/org/dithernet/lapel/',
             flags=Gio.ApplicationFlags.HANDLES_COMMAND_LINE
         )
+        self.version = version
         self.connect('command-line', self.on_commandline)
 
     def on_commandline(self, app, cmdline, *args):
@@ -54,6 +55,7 @@ class Application(Adw.Application):
             # Keep running in the background
             self.hold()
 
+        self._ = _
         self.show_window()
 
     def show_window(self, *args):
@@ -79,7 +81,21 @@ class Application(Adw.Application):
         return False
 
     def on_about_action(self, widget, _):
-        about = AboutDialog(self.props.active_window)
+        about = Adw.AboutWindow(
+          modal=True, transient_for=self.props.active_window,
+          version=self.version,
+          application_name="Assistant",
+          application_icon='audio-input-microphone',
+          # TRANSLATORS: You can also translate this as "developers".
+          developer_name=self._('Aspinwall contributors'), # noqa: F821
+          license_type=Gtk.License.MIT_X11,
+          website='https://github.com/aspinwall-ui/lapel',
+          issue_url='https://github.com/aspinwall-ui/lapel/issues'
+        )
+
+        import mycroft.version
+        about.set_debug_info(f"Assistant version: {self.version}\nMycroft version: {mycroft.version.CORE_VERSION_STR}")
+
         about.present()
 
     def on_preferences_action(self, widget, _):
@@ -99,5 +115,5 @@ class Application(Adw.Application):
         self.add_action(action)
 
 def main(version):
-    app = Application()
+    app = Application(version)
     return app.run(sys.argv)
