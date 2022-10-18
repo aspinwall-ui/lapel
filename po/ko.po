@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-08 16:04+0200\n"
-"PO-Revision-Date: 2022-10-07 10:18+0000\n"
-"Last-Translator: Hoseok Seo <ddinghoya@gmail.com>\n"
+"PO-Revision-Date: 2022-10-19 16:05+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/aspinwall-ui/"
 "lapel/ko/>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
 #: data/ui/window.ui:73
@@ -27,15 +27,15 @@ msgstr "어시스턴트"
 #. TRANSLATORS: This is the description, as seen in the about dialog.
 #: data/org.dithernet.lapel.appdata.xml.in:7 data/ui/about.ui:29
 msgid "Voice assistant GUI based on Mycroft"
-msgstr "마이크로프트 기반 음성 비서 GUI"
+msgstr "Mycroft를 기반으로 한 음성 어시스턴트 GUI"
 
 #: data/org.dithernet.lapel.gschema.xml:6 data/ui/preferences.ui:17
 msgid "Websocket address"
-msgstr "웹 소켓 주소"
+msgstr "웹소켓 주소"
 
 #: data/org.dithernet.lapel.gschema.xml:7
 msgid "Websocket address used when connecting to Mycroft."
-msgstr "마이크로프트에 연결할 때 사용되는 웹소켓 주소입니다."
+msgstr "Mycroft에 연결할 때 사용되는 웹소켓 주소입니다."
 
 #: data/org.dithernet.lapel.gschema.xml:14
 msgid "Websocket port"
@@ -43,7 +43,7 @@ msgstr "웹소켓 포트"
 
 #: data/org.dithernet.lapel.gschema.xml:15
 msgid "Websocket port used when connecting to Mycroft."
-msgstr "마이크로프트에 연결할 때 사용되는 웹소켓 포트입니다."
+msgstr "Mycroft에 연결할 때 사용되는 웹소켓 포트입니다."
 
 #. TRANSLATORS: You can also translate "contributors" as "programmers" or "developers".
 #: data/ui/about.ui:31
@@ -56,7 +56,7 @@ msgstr "페어링"
 
 #: data/ui/pair.ui:44
 msgid "Your Pairing Code:"
-msgstr "페어링 코드:"
+msgstr "사용자의 페어링 코드:"
 
 #: data/ui/pair.ui:72
 msgid ""
@@ -71,8 +71,9 @@ msgstr ""
 msgid ""
 "If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
 "ai\">create one</a>."
-msgstr "아직 마이크로프트 계정이 없으면 <a href=\"https://account.mycroft.ai\">계정 "
-"생성</a>하세요."
+msgstr ""
+"아직 Mycroft 계정이 없다면, <a href=\"https://account.mycroft.ai\">계정을 "
+"만드십시오</a>."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
@@ -82,21 +83,21 @@ msgstr "연결"
 msgid ""
 "Address and port to use when connecting to Mycroft's websocket. You will "
 "need to restart Assistant before the changes take effect."
-msgstr "마이크로프트의 웹소켓에 연결할 때 사용할 주소 및 포트입니다. 변경 사항을 "
+msgstr "Mycroft의 웹소켓에 연결할 때 사용할 주소 및 포트입니다. 변경 사항을 "
 "적용하려면 어시스턴트를 다시 시작해야 합니다."
 
 #. TRANSLATORS: Used for skill usage examples
 #: data/ui/skillview.ui:38
 msgid "Examples"
-msgstr "예"
+msgstr "예시"
 
 #: data/ui/speechview.ui:45
 msgid "Speak to the Microphone"
-msgstr "마이크로폰으로 대화"
+msgstr "마이크에 말하기"
 
 #: data/ui/window.ui:36
 msgid "Search skills"
-msgstr "기능 검색"
+msgstr "기능 검색하기"
 
 #: data/ui/window.ui:57
 msgid "Could Not Connect"
@@ -105,8 +106,7 @@ msgstr "연결할 수 없음"
 #: data/ui/window.ui:58
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
-msgstr "마이크로프트 웹소켓에 연결하지 못했습니다. 마이크로프트가 실행 중인지 "
-"확인하세요."
+msgstr "Mycroft 웹소켓에 연결하지 못했습니다. Mycroft가 실행 중인지 확인합니다."
 
 #: data/ui/window.ui:85
 msgid "Skills"
@@ -114,11 +114,11 @@ msgstr "기능"
 
 #: data/ui/window.ui:104
 msgid "_Preferences"
-msgstr "_기본 설정"
+msgstr "환경설정(_P)"
 
 #: data/ui/window.ui:108
 msgid "_About Assistant"
-msgstr "_어시스턴트 정보"
+msgstr "어시스턴트 정보(_A)"
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
 #: src/types/skill.py:174
@@ -128,7 +128,7 @@ msgstr "설명을 찾을 수 없습니다."
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
 #: src/types/skill.py:186
 msgid "No examples found."
-msgstr "예를 찾을 수 없습니다."
+msgstr "예시를 찾을 수 없습니다."
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
 #: src/types/skill.py:191
@@ -138,9 +138,9 @@ msgstr "기능 데이터를 찾을 수 없습니다."
 #. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
 #: src/wrappers/wrappers.py:74
 msgid "Confirm"
-msgstr "확인"
+msgstr "확인하기"
 
 #. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
 #: src/wrappers/wrappers.py:76
 msgid "Cancel"
-msgstr "취소"
+msgstr "취소하기"
