@@ -70,8 +70,8 @@ msgid ""
 "If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
 "ai\">create one</a>."
 msgstr ""
-"Jeśli nie masz jeszcze konta Mycroft, <a href=\"https://account.mycroft."
-"ai\">utwórz je</a>."
+"Jeśli nie masz jeszcze konta Mycroft, <a href=\"https://account.mycroft.ai"
+"\">utwórz je</a>."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"

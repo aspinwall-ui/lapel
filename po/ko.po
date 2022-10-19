@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-08 16:04+0200\n"
+"POT-Creation-Date: 2022-10-12 20:55+0200\n"
 "PO-Revision-Date: 2022-10-19 16:05+0000\n"
 "Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/aspinwall-ui/"
@@ -19,13 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.14.2-dev\n"
 
-#: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
-#: data/ui/window.ui:73
+#: data/org.dithernet.lapel.desktop.in:3
+#: data/org.dithernet.lapel.appdata.xml.in:3 data/ui/window.ui:6
+#: data/ui/window.ui:74
 msgid "Assistant"
 msgstr "어시스턴트"
 
 #. TRANSLATORS: This is the description, as seen in the about dialog.
-#: data/org.dithernet.lapel.appdata.xml.in:7 data/ui/about.ui:29
+#: data/org.dithernet.lapel.appdata.xml.in:4
+#: data/org.dithernet.lapel.appdata.xml.in:14 data/ui/about.ui:29
 msgid "Voice assistant GUI based on Mycroft"
 msgstr "Mycroft를 기반으로 한 음성 어시스턴트 GUI"
 
@@ -63,17 +65,17 @@ msgid ""
 "Go to <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</"
 "a> to pair your device. When asked, input the code displayed above."
 msgstr ""
-"<a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</a>로 "
-"이동하여 기기를 페어링하세요. 요청 메시지가 표시되면 위에 표시된 코드를 "
-"입력합니다."
+"<a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</a>로 이"
+"동하여 기기를 페어링하세요. 요청 메시지가 표시되면 위에 표시된 코드를 입력합"
+"니다."
 
 #: data/ui/pair.ui:85
 msgid ""
 "If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
 "ai\">create one</a>."
 msgstr ""
-"아직 Mycroft 계정이 없다면, <a href=\"https://account.mycroft.ai\">계정을 "
-"만드십시오</a>."
+"아직 Mycroft 계정이 없다면, <a href=\"https://account.mycroft.ai\">계정을 만"
+"드십시오</a>."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
@@ -83,11 +85,22 @@ msgstr "연결"
 msgid ""
 "Address and port to use when connecting to Mycroft's websocket. You will "
 "need to restart Assistant before the changes take effect."
-msgstr "Mycroft의 웹소켓에 연결할 때 사용할 주소 및 포트입니다. 변경 사항을 "
-"적용하려면 어시스턴트를 다시 시작해야 합니다."
+msgstr ""
+"Mycroft의 웹소켓에 연결할 때 사용할 주소 및 포트입니다. 변경 사항을 적용하려"
+"면 어시스턴트를 다시 시작해야 합니다."
+
+#: data/ui/skills.ui:47
+#, fuzzy
+#| msgid "No examples found."
+msgid "No Results Found"
+msgstr "예시를 찾을 수 없습니다."
+
+#: data/ui/skills.ui:48
+msgid "Try a different search query"
+msgstr ""
 
 #. TRANSLATORS: Used for skill usage examples
-#: data/ui/skillview.ui:38
+#: data/ui/skillview.ui:56
 msgid "Examples"
 msgstr "예시"
 
@@ -95,52 +108,64 @@ msgstr "예시"
 msgid "Speak to the Microphone"
 msgstr "마이크에 말하기"
 
-#: data/ui/window.ui:36
+#: data/ui/window.ui:37
 msgid "Search skills"
 msgstr "기능 검색하기"
 
-#: data/ui/window.ui:57
+#: data/ui/window.ui:58
 msgid "Could Not Connect"
 msgstr "연결할 수 없음"
 
-#: data/ui/window.ui:58
+#: data/ui/window.ui:59
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
-msgstr "Mycroft 웹소켓에 연결하지 못했습니다. Mycroft가 실행 중인지 확인합니다."
+msgstr ""
+"Mycroft 웹소켓에 연결하지 못했습니다. Mycroft가 실행 중인지 확인합니다."
 
-#: data/ui/window.ui:85
+#: data/ui/window.ui:86
 msgid "Skills"
 msgstr "기능"
 
-#: data/ui/window.ui:104
+#: data/ui/window.ui:105
 msgid "_Preferences"
 msgstr "환경설정(_P)"
 
-#: data/ui/window.ui:108
+#: data/ui/window.ui:109
 msgid "_About Assistant"
 msgstr "어시스턴트 정보(_A)"
 
+#: data/ui/window.ui:113
+msgid "_Quit"
+msgstr ""
+
+#. TRANSLATORS: You can also translate this as "developers".
+#: src/main.py:90
+#, fuzzy
+#| msgid "Copyright © 2022 Aspinwall contributors"
+msgid "Aspinwall contributors"
+msgstr "저작권 © 2022 Aspinwall 기여자"
+
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
-#: src/types/skill.py:174
+#: src/types/skill.py:208
 msgid "No description found."
 msgstr "설명을 찾을 수 없습니다."
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
-#: src/types/skill.py:186
+#: src/types/skill.py:220
 msgid "No examples found."
 msgstr "예시를 찾을 수 없습니다."
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
-#: src/types/skill.py:191
+#: src/types/skill.py:228
 msgid "Skill data not found."
 msgstr "기능 데이터를 찾을 수 없습니다."
 
 #. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
-#: src/wrappers/wrappers.py:74
+#: src/wrappers/dialog.py:74
 msgid "Confirm"
 msgstr "확인하기"
 
 #. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
-#: src/wrappers/wrappers.py:76
+#: src/wrappers/dialog.py:76
 msgid "Cancel"
 msgstr "취소하기"
