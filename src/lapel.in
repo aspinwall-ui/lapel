@@ -42,11 +42,11 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 gettext.install('lapel', localedir)
 
 if __name__ == '__main__':
-	import gi
+    import gi
 
-	from gi.repository import Gio
-	resource = Gio.Resource.load(os.path.join(pkgdatadir, 'lapel.gresource'))
-	resource._register()
+    from gi.repository import Gio
+    resource = Gio.Resource.load(os.path.join(pkgdatadir, 'lapel.gresource'))
+    resource._register()
 
-	from lapel import main
-	sys.exit(main.main(VERSION))
+    from lapel import main
+    sys.exit(main.main(VERSION))

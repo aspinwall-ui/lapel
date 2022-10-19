@@ -9,6 +9,7 @@ data/ui/skills.ui
 data/ui/skillview.ui
 data/ui/speechview.ui
 data/ui/window.ui
+src/main.py
 src/window.py
 src/types/skill.py
-src/wrappers/wrappers.py
+src/wrappers/dialog.py

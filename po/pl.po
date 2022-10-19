@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-08 16:04+0200\n"
+"POT-Creation-Date: 2022-10-12 20:55+0200\n"
 "PO-Revision-Date: 2022-07-26 11:07+0000\n"
 "Last-Translator: knuxify <knuxfanwin8.mail@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/aspinwall-ui/"
@@ -15,13 +15,15 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14-dev\n"
 
-#: data/org.dithernet.lapel.desktop.in:3 data/ui/window.ui:6
-#: data/ui/window.ui:73
+#: data/org.dithernet.lapel.desktop.in:3
+#: data/org.dithernet.lapel.appdata.xml.in:3 data/ui/window.ui:6
+#: data/ui/window.ui:74
 msgid "Assistant"
 msgstr "Asystent"
 
 #. TRANSLATORS: This is the description, as seen in the about dialog.
-#: data/org.dithernet.lapel.appdata.xml.in:7 data/ui/about.ui:29
+#: data/org.dithernet.lapel.appdata.xml.in:4
+#: data/org.dithernet.lapel.appdata.xml.in:14 data/ui/about.ui:29
 msgid "Voice assistant GUI based on Mycroft"
 msgstr "GUI asystenta głosowego oparte na Mycroft"
 
@@ -68,8 +70,8 @@ msgid ""
 "If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
 "ai\">create one</a>."
 msgstr ""
-"Jeśli nie masz jeszcze konta Mycroft, <a href=\"https://account.mycroft.ai\""
-">utwórz je</a>."
+"Jeśli nie masz jeszcze konta Mycroft, <a href=\"https://account.mycroft."
+"ai\">utwórz je</a>."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
@@ -83,8 +85,17 @@ msgstr ""
 "Adres i port do połączenia z gniazdem sieciowym Mycroft. Zmiany zostaną "
 "wprowadzone po ponownym uruchomieniu Asystenta."
 
+#: data/ui/skills.ui:47
+#, fuzzy
+msgid "No Results Found"
+msgstr "Nie znaleziono przykładów."
+
+#: data/ui/skills.ui:48
+msgid "Try a different search query"
+msgstr ""
+
 #. TRANSLATORS: Used for skill usage examples
-#: data/ui/skillview.ui:38
+#: data/ui/skillview.ui:56
 msgid "Examples"
 msgstr "Przykłady"
 
@@ -92,54 +103,64 @@ msgstr "Przykłady"
 msgid "Speak to the Microphone"
 msgstr "Mów do mikrofonu"
 
-#: data/ui/window.ui:36
+#: data/ui/window.ui:37
 msgid "Search skills"
 msgstr "Szukaj umiejętności"
 
-#: data/ui/window.ui:57
+#: data/ui/window.ui:58
 msgid "Could Not Connect"
 msgstr "Połączenie nie powiodło się"
 
-#: data/ui/window.ui:58
+#: data/ui/window.ui:59
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
 msgstr ""
 "Nie udało się połączyć z gniazdem sieciowym Mycroft. Upewnij się, że Mycroft "
 "jest uruchomiony."
 
-#: data/ui/window.ui:85
+#: data/ui/window.ui:86
 msgid "Skills"
 msgstr "Umiejętności"
 
-#: data/ui/window.ui:104
+#: data/ui/window.ui:105
 msgid "_Preferences"
 msgstr "_Ustawienia"
 
-#: data/ui/window.ui:108
+#: data/ui/window.ui:109
 msgid "_About Assistant"
 msgstr "_O Asystencie"
 
+#: data/ui/window.ui:113
+msgid "_Quit"
+msgstr ""
+
+#. TRANSLATORS: You can also translate this as "developers".
+#: src/main.py:90
+#, fuzzy
+msgid "Aspinwall contributors"
+msgstr "Prawa autorskie © 2022 Deweloperzy Aspinwall"
+
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
-#: src/types/skill.py:174
+#: src/types/skill.py:208
 msgid "No description found."
 msgstr "Nie znaleziono opisu."
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
-#: src/types/skill.py:186
+#: src/types/skill.py:220
 msgid "No examples found."
 msgstr "Nie znaleziono przykładów."
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
-#: src/types/skill.py:191
+#: src/types/skill.py:228
 msgid "Skill data not found."
 msgstr "Nie znaleziono danych umiejętności."
 
 #. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
-#: src/wrappers/wrappers.py:74
+#: src/wrappers/dialog.py:74
 msgid "Confirm"
 msgstr "Potwierdź"
 
 #. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
-#: src/wrappers/wrappers.py:76
+#: src/wrappers/dialog.py:76
 msgid "Cancel"
 msgstr "Anuluj"

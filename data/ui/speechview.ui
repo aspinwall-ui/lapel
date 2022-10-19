@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-	<requires lib="gtk" version="4.0"/>
-	<template class="SpeechView" parent="GtkBox">
-		<property name="hexpand">true</property>
+  <requires lib="gtk" version="4.0"/>
+  <template class="SpeechView" parent="GtkBox">
+    <property name="hexpand">true</property>
 
-		<style>
-			<class name="speech-view"/>
-		</style>
+    <style>
+      <class name="speech-view"/>
+    </style>
 
-		<child>
-			<object class="GtkOverlay">
-				<child type="overlay">
-					<object class="GtkButton">
-						<property name="icon-name">window-close-symbolic</property>
-						<property name="halign">end</property>
-						<property name="valign">start</property>
+    <child>
+      <object class="GtkOverlay">
+        <child type="overlay">
+          <object class="GtkButton">
+            <property name="icon-name">window-close-symbolic</property>
+            <property name="halign">end</property>
+            <property name="valign">start</property>
 
-						<signal name="clicked" handler="close"/>
-					</object>
-				</child>
+            <signal name="clicked" handler="close"/>
+          </object>
+        </child>
 
-				<child>
-					<object class="GtkBox" id="info_container">
-						<property name="orientation">vertical</property>
-						<property name="hexpand">true</property>
-						<property name="spacing">32</property>
-						<property name="margin-top">48</property>
-						<property name="margin-bottom">48</property>
+        <child>
+          <object class="GtkBox" id="info_container">
+            <property name="orientation">vertical</property>
+            <property name="hexpand">true</property>
+            <property name="spacing">32</property>
+            <property name="margin-top">48</property>
+            <property name="margin-bottom">48</property>
 
-						<style>
-							<class name="speech-view-container"/>
-						</style>
+            <style>
+              <class name="speech-view-container"/>
+            </style>
 
-						<child>
-							<object class="GtkImage">
-								<property name="icon-name">microphone-sensitivity-high-symbolic</property>
-								<property name="icon-size">large</property>
-								<property name="hexpand">true</property>
-							</object>
-						</child>
+            <child>
+              <object class="GtkImage">
+                <property name="icon-name">microphone-sensitivity-high-symbolic</property>
+                <property name="icon-size">large</property>
+                <property name="hexpand">true</property>
+              </object>
+            </child>
 
-						<child>
-							<object class="GtkLabel">
-								<property name="label" translatable="yes">Speak to the Microphone</property>
-								<property name="wrap">true</property>
-								<style>
-									<class name="title-2"/>
-								</style>
-							</object>
-						</child>
-					</object>
-				</child>
-			</object>
-		</child>
-	</template>
+            <child>
+              <object class="GtkLabel">
+                <property name="label" translatable="yes">Speak to the Microphone</property>
+                <property name="wrap">true</property>
+                <style>
+                  <class name="title-2"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
 </interface>
