@@ -77,13 +77,3 @@ class LapelWindow(Adw.ApplicationWindow):
         """Handles errors."""
         print(error)
         self.assistant_page.get_child().content_flap.set_reveal_flap(False)
-
-@Gtk.Template(resource_path='/org/dithernet/lapel/ui/about.ui')
-class AboutDialog(Gtk.AboutDialog):
-    """Main about dialog for Assistant."""
-    __gtype_name__ = 'AboutDialog'
-
-    def __init__(self, parent):
-        Gtk.AboutDialog.__init__(self)
-        self.props.version = "0.1.0"
-        self.set_transient_for(parent)
