@@ -13,7 +13,7 @@ from .daemon import start_daemon, get_daemon
 
 from .views.preferences import LapelPreferences
 from .views.popup import AssistantPopup
-from .window import LapelWindow, AboutDialog
+from .window import LapelWindow
 
 class Application(Adw.Application):
     win = None
