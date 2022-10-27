@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-12 20:55+0200\n"
-"PO-Revision-Date: 2022-10-27 14:07+0000\n"
+"PO-Revision-Date: 2022-10-28 15:07+0000\n"
 "Last-Translator: Hoseok Seo <ddinghoya@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/aspinwall-ui/"
 "lapel/ko/>\n"
@@ -138,10 +138,8 @@ msgstr "종료(_Q)"
 
 #. TRANSLATORS: You can also translate this as "developers".
 #: src/main.py:90
-#, fuzzy
-#| msgid "Copyright © 2022 Aspinwall contributors"
 msgid "Aspinwall contributors"
-msgstr "저작권 © 2022 Aspinwall 기여자"
+msgstr "Aspinwall 기여자"
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
 #: src/types/skill.py:208
