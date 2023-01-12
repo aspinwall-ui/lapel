@@ -1,7 +1,6 @@
 data/org.dithernet.lapel.desktop.in
-data/org.dithernet.lapel.appdata.xml.in
+data/org.dithernet.lapel.metainfo.xml.in
 data/org.dithernet.lapel.gschema.xml
-data/ui/about.ui
 data/ui/assistant.ui
 data/ui/pair.ui
 data/ui/preferences.ui
