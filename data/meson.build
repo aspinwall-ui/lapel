@@ -18,11 +18,11 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-  input: 'org.dithernet.lapel.appdata.xml.in',
-  output: 'org.dithernet.lapel.appdata.xml',
+  input: 'org.dithernet.lapel.metainfo.xml.in',
+  output: 'org.dithernet.lapel.metainfo.xml',
   po_dir: '../po',
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'appdata')
+  install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
 appstream_util = find_program('appstream-util', required: false)
