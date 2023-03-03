@@ -1,164 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lapel package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-12 20:55+0200\n"
-"PO-Revision-Date: 2023-02-25 11:38+0000\n"
-"Last-Translator: gnu-ewm <gnu.ewm@protonmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/aspinwall-ui/"
-"lapel/pl/>\n"
-"Language: pl\n"
+"PO-Revision-Date: 2022-10-28 15:07+0000\n"
+"Last-Translator: Hoseok Seo <ddinghoya@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/aspinwall-ui/"
+"lapel/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: data/org.dithernet.lapel.desktop.in:3
 #: data/org.dithernet.lapel.appdata.xml.in:3 data/ui/window.ui:6
 #: data/ui/window.ui:74
 msgid "Assistant"
-msgstr "Asystent"
+msgstr "어시스턴트"
 
 #. TRANSLATORS: This is the description, as seen in the about dialog.
 #: data/org.dithernet.lapel.appdata.xml.in:4
 #: data/org.dithernet.lapel.appdata.xml.in:14 data/ui/about.ui:29
 msgid "Voice assistant GUI based on Mycroft"
-msgstr "GUI asystenta głosowego oparte na Mycroft"
+msgstr "Mycroft를 기반으로 한 음성 어시스턴트 GUI"
 
 #: data/org.dithernet.lapel.gschema.xml:6 data/ui/preferences.ui:17
 msgid "Websocket address"
-msgstr "Adres gniazda"
+msgstr "웹소켓 주소"
 
 #: data/org.dithernet.lapel.gschema.xml:7
 msgid "Websocket address used when connecting to Mycroft."
-msgstr "Adres gniazda sieciowego używanego podczas połączenia z Mycroft."
+msgstr "Mycroft에 연결할 때 사용되는 웹소켓 주소입니다."
 
 #: data/org.dithernet.lapel.gschema.xml:14
 msgid "Websocket port"
-msgstr "Port gniazda"
+msgstr "웹소켓 포트"
 
 #: data/org.dithernet.lapel.gschema.xml:15
 msgid "Websocket port used when connecting to Mycroft."
-msgstr "Port gniazda sieciowego używanego podczas połączenia z Mycroft."
+msgstr "Mycroft에 연결할 때 사용되는 웹소켓 포트입니다."
 
 #. TRANSLATORS: You can also translate "contributors" as "programmers" or "developers".
 #: data/ui/about.ui:31
 msgid "Copyright © 2022 Aspinwall contributors"
-msgstr "Prawa autorskie © 2022 Deweloperzy Aspinwall"
+msgstr "저작권 © 2022 Aspinwall 기여자"
 
 #: data/ui/pair.ui:6
 msgid "Pairing"
-msgstr "Sparuj"
+msgstr "페어링"
 
 #: data/ui/pair.ui:44
 msgid "Your Pairing Code:"
-msgstr "Twój kod parowania:"
+msgstr "사용자의 페어링 코드:"
 
 #: data/ui/pair.ui:72
 msgid ""
 "Go to <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</"
 "a> to pair your device. When asked, input the code displayed above."
 msgstr ""
-"Wejdź na <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/"
-"pair</a> aby sparować swoje urządzenie. W odpowiednie pole wpisz kod "
-"wyświetlony powyżej."
+"<a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</a>로 이"
+"동하여 기기를 페어링하세요. 요청 메시지가 표시되면 위에 표시된 코드를 입력합"
+"니다."
 
 #: data/ui/pair.ui:85
 msgid ""
 "If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
 "ai\">create one</a>."
 msgstr ""
-"Jeśli nie masz jeszcze konta Mycroft, <a href=\"https://account.mycroft.ai"
-"\">utwórz je</a>."
+"아직 Mycroft 계정이 없다면, <a href=\"https://account.mycroft.ai\">계정을 만"
+"드십시오</a>."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
-msgstr "Połączenie"
+msgstr "연결"
 
 #: data/ui/preferences.ui:18
 msgid ""
 "Address and port to use when connecting to Mycroft's websocket. You will "
 "need to restart Assistant before the changes take effect."
 msgstr ""
-"Adres i port do połączenia z gniazdem sieciowym Mycroft. Zmiany zostaną "
-"wprowadzone po ponownym uruchomieniu Asystenta."
+"Mycroft의 웹소켓에 연결할 때 사용할 주소 및 포트입니다. 변경 사항을 적용하려"
+"면 어시스턴트를 다시 시작해야 합니다."
 
 #: data/ui/skills.ui:47
 msgid "No Results Found"
-msgstr "Brak wyników wyszukiwania"
+msgstr "검색 결과 없음"
 
 #: data/ui/skills.ui:48
 msgid "Try a different search query"
-msgstr "Spróbuj użyć innego zapytania"
+msgstr "다른 검색어 시도"
 
 #. TRANSLATORS: Used for skill usage examples
 #: data/ui/skillview.ui:56
 msgid "Examples"
-msgstr "Przykłady"
+msgstr "예시"
 
 #: data/ui/speechview.ui:45
 msgid "Speak to the Microphone"
-msgstr "Mów do mikrofonu"
+msgstr "마이크에 말하기"
 
 #: data/ui/window.ui:37
 msgid "Search skills"
-msgstr "Szukaj umiejętności"
+msgstr "기능 검색하기"
 
 #: data/ui/window.ui:58
 msgid "Could Not Connect"
-msgstr "Połączenie nie powiodło się"
+msgstr "연결할 수 없음"
 
 #: data/ui/window.ui:59
 msgid ""
 "Failed to connect to Mycroft websocket. Make sure that Mycroft is running."
 msgstr ""
-"Nie udało się połączyć z gniazdem sieciowym Mycroft. Upewnij się, że Mycroft "
-"jest uruchomiony."
+"Mycroft 웹소켓에 연결하지 못했습니다. Mycroft가 실행 중인지 확인합니다."
 
 #: data/ui/window.ui:86
 msgid "Skills"
-msgstr "Umiejętności"
+msgstr "기능"
 
 #: data/ui/window.ui:105
 msgid "_Preferences"
-msgstr "_Ustawienia"
+msgstr "환경설정(_P)"
 
 #: data/ui/window.ui:109
 msgid "_About Assistant"
-msgstr "_O Asystencie"
+msgstr "어시스턴트 정보(_A)"
 
 #: data/ui/window.ui:113
 msgid "_Quit"
-msgstr "Wyjdź (_Q)"
+msgstr "종료(_Q)"
 
 #. TRANSLATORS: You can also translate this as "developers".
 #: src/main.py:90
 msgid "Aspinwall contributors"
-msgstr "Deweloperzy Aspinwall"
+msgstr "Aspinwall 기여자"
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
 #: src/types/skill.py:208
 msgid "No description found."
-msgstr "Nie znaleziono opisu."
+msgstr "설명을 찾을 수 없습니다."
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided examples.
 #: src/types/skill.py:220
 msgid "No examples found."
-msgstr "Nie znaleziono przykładów."
+msgstr "예시를 찾을 수 없습니다."
 
 #. TRANSLATORS: Shown in the skills menu when a skill's information could not be found.
 #: src/types/skill.py:228
 msgid "Skill data not found."
-msgstr "Nie znaleziono danych umiejętności."
+msgstr "기능 데이터를 찾을 수 없습니다."
 
 #. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
 #: src/wrappers/dialog.py:74
 msgid "Confirm"
-msgstr "Potwierdź"
+msgstr "확인하기"
 
 #. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
 #: src/wrappers/dialog.py:76
 msgid "Cancel"
-msgstr "Anuluj"
+msgstr "취소하기"
