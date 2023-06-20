@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lapel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-12 20:55+0200\n"
-"PO-Revision-Date: 2022-04-03 10:26+0000\n"
+"PO-Revision-Date: 2023-06-21 11:47+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "aspinwall-ui/lapel/nb_NO/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.12-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 #: data/org.dithernet.lapel.desktop.in:3
 #: data/org.dithernet.lapel.appdata.xml.in:3 data/ui/window.ui:6
@@ -50,27 +50,31 @@ msgstr "Vevsocket-port brukt ved tilkobling til Mycroft."
 #. TRANSLATORS: You can also translate "contributors" as "programmers" or "developers".
 #: data/ui/about.ui:31
 msgid "Copyright © 2022 Aspinwall contributors"
-msgstr ""
+msgstr "Opphavsrett © 2022–2023 Aspinwall-bidragsyterne"
 
 #: data/ui/pair.ui:6
 msgid "Pairing"
-msgstr ""
+msgstr "Tilknytning"
 
 #: data/ui/pair.ui:44
 msgid "Your Pairing Code:"
-msgstr ""
+msgstr "Din tilknytningskode"
 
 #: data/ui/pair.ui:72
 msgid ""
 "Go to <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</"
 "a> to pair your device. When asked, input the code displayed above."
 msgstr ""
+"Gå til <a href=\"https://account.mycroft.ai/pair\">account.mycroft.ai/pair</"
+"a> for å tilknytte din enhet. Skriv inn koden nedenfor når forespurt."
 
 #: data/ui/pair.ui:85
 msgid ""
 "If you do not have a Mycroft account yet, <a href=\"https://account.mycroft."
 "ai\">create one</a>."
 msgstr ""
+"Hvis du ikke har en Mycroft-konto enda kan du <a href=\"https://account."
+"mycroft.ai\">opprette en</a>."
 
 #: data/ui/preferences.ui:13
 msgid "Connection"
@@ -91,7 +95,7 @@ msgstr "Fant ingen eksempler."
 
 #: data/ui/skills.ui:48
 msgid "Try a different search query"
-msgstr ""
+msgstr "Prøv et annet søk"
 
 #. TRANSLATORS: Used for skill usage examples
 #: data/ui/skillview.ui:56
@@ -100,7 +104,7 @@ msgstr "Eksempler"
 
 #: data/ui/speechview.ui:45
 msgid "Speak to the Microphone"
-msgstr ""
+msgstr "Snakk til mikrofonen"
 
 #: data/ui/window.ui:37
 msgid "Search skills"
@@ -129,12 +133,12 @@ msgstr "_Om Assistent"
 
 #: data/ui/window.ui:113
 msgid "_Quit"
-msgstr ""
+msgstr "_Avslutt"
 
 #. TRANSLATORS: You can also translate this as "developers".
 #: src/main.py:90
 msgid "Aspinwall contributors"
-msgstr ""
+msgstr "Aspinwall-bidragsytere"
 
 #. TRANSLATORS: Shown in the skills menu when no a skill has no provided description.
 #: src/types/skill.py:208
@@ -154,9 +158,9 @@ msgstr "Fant ingen ferdighetsdata."
 #. TRANSLATORS: "Confirm" button, used for Confirm/Cancel dialogs
 #: src/wrappers/dialog.py:74
 msgid "Confirm"
-msgstr ""
+msgstr "Bekreft"
 
 #. TRANSLATORS: "Cancel" button, used for Confirm/Cancel dialogs
 #: src/wrappers/dialog.py:76
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
