@@ -6,9 +6,9 @@ from gi.repository import Adw, Gtk
 from uuid import uuid4
 from requests import HTTPError
 import threading, time
-from mycroft_bus_client import Message
-from mycroft.api import is_paired
-from mycroft.identity import IdentityManager
+from ovos_bus_client import Message
+from ovos_backend_client import is_paired
+from ovos_backend_client.identity import IdentityManager
 import os
 
 from ..daemon import get_daemon

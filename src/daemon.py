@@ -2,10 +2,11 @@
 """
 Contains code for the message bus daemon.
 """
-from mycroft.api import DeviceApi, check_remote_pairing
-from mycroft.util.signal import create_signal
-from mycroft_bus_client import Message
-from mycroft_bus_client import MessageBusClient as OriginalMessageBusClient
+from ovos_backend_client.api import DeviceApi
+from ovos_backend_client import check_remote_pairing
+from ovos_utils.signal import create_signal
+from ovos_bus_client import Message
+from ovos_bus_client import MessageBusClient as OriginalMessageBusClient
 from gi.repository import Gio, GObject
 import socket
 import time
