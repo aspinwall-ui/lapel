@@ -2,7 +2,7 @@
 """
 Contains code for handling skills.
 """
-from mycroft.configuration import Configuration
+from ovos_config import Configuration
 from gi.repository import Gio, GLib, Gtk, GObject
 import pathlib
 import os.path
