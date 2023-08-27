@@ -1,1 +1,3 @@
-mycroft-messagebus-client
+ovos-bus-client
+ovos-config
+ovos-utils

@@ -2,7 +2,7 @@
 """
 Common wrappers.
 """
-from mycroft_bus_client import Message
+from ovos_bus_client import Message
 from gi.repository import Gtk
 
 class DialogWrapper(Gtk.Box):
